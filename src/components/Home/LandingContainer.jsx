@@ -66,6 +66,7 @@ export default function LandingContainer() {
                 <button type="submit" className="email-next">
                   Next
                 </button>
+                {/* eslint-disable-next-line react/button-has-type */}
                 <button className="email-cancel">Cancel</button>
               </div>
             </form>

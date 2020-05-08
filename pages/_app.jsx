@@ -1,7 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import '../css/style.css';
+import '../src/css/style.css';
 
+// eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -12,7 +13,9 @@ function MyApp({ Component, pageProps }) {
         />
         <title>OpenSourceCode</title>
       </Head>
-      <Component {...pageProps} />)
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <Component {...pageProps} />
+      )
     </>
   );
 }
