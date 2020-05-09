@@ -65,3 +65,10 @@ Navigate into your new site’s directory and start it up.
    Your site is now running at `http://localhost:3000`!
    
 Open the `opensourcecode` directory in your code editor of choice and edit files under `src`. Save your changes and the browser will update in real time!
+**For working on the repository, you'll have to follow these steps:**
+
+1: Fork the repo
+2: Create a new branch on the forked repository. The name of the new branch should be `issue-<ISSUE NO>`.
+3: Clone the repository on your system.
+4: Work on the new branch and push the code.
+5: Create a PR.
