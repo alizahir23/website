@@ -22,11 +22,11 @@ export default function BoxProfile() {
         <div className={styles["top-right-line"]}>
           <img src="SVG/underline (1).svg" alt="underline"></img>
         </div>
-        <div class={styles["boxcontent"]}>
+        <div className={styles["boxcontent"]}>
           <p className={styles["usersname"]}>User</p>
           <p className={styles["usercontent"]}>Something about the user</p>
           <p className={styles["usercontent"]}>User information given by user</p>
-          <div class={styles["langsec"]}>
+          <div className={styles["langsec"]}>
             <div>
               <p className={styles["userskills"]}>Skills</p>
             </div>
@@ -38,7 +38,7 @@ export default function BoxProfile() {
               <p>CSS</p>
             </div>
           </div>
-          <div class={styles["langsec"]}>
+          <div className={styles["langsec"]}>
             <div className={styles["smallbox"]}>
               <div className={styles["langsec"]}>
                 <div className={styles["follow"]}>

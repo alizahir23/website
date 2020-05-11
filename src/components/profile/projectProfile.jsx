@@ -51,7 +51,7 @@ export default function ProjectProfile() {
               look like on the real website page
             </p>
           </div>
-          <div class={styles["langsec"]}>
+          <div className={styles["langsec"]}>
             <div className={styles["langButtonJS"]}>
               <p>Javascript</p>
             </div>
