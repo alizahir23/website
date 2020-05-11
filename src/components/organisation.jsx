@@ -104,8 +104,9 @@ const organisation = ({ org }) => {
 
         <div className="Tags" style={{ marginLeft: '15px' }}>
           {/* eslint-disable-next-line react/prop-types */}
-          {org.langTags.map((tag) => (
+          {org.langTags.map((tag, index) => (
             <p
+              key={index}
               style={{
                 display: 'inline-block',
                 borderRadius: '10px',

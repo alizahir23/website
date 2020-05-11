@@ -23,3 +23,43 @@
   width: 85%;
   margin-top: 10px;
 }
+
+.hrLine {
+  width: 10%;
+  border: none;
+  background-color: #333;
+  height: 8px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 680px) {
+  .landing-container {
+    align-items: center;
+    text-align: center;
+
+    flex-direction: column-reverse;
+  }
+  .hrLine {
+    width: 100%;
+    margin: unset;
+    height: 4px;
+  }
+  .left-col {
+    width: 80%;
+  }
+  .right-col {
+    width: 60%;
+    margin: auto;
+  }
+  .right-col img {
+    margin: auto;
+  }
+  .left-col p {
+    font-size: 14px;
+  }
+  .left-col h1 {
+    font-size: 30px;
+  }
+}

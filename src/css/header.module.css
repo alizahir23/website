@@ -3,11 +3,13 @@
   background-color: #f7f7f7;
   display: flex;
   flex-direction: row;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
 .header-logo {
+  position: relative;
   width: 200px;
   cursor: pointer;
 }
@@ -104,4 +106,13 @@
 }
 .dd-button:nth-child(3) {
   background-color: #fe5e44;
+}
+
+@media only screen and (max-width: 800px) {
+  .links {
+    display: none;
+  }
+  .profile {
+    display: none;
+  }
 }
