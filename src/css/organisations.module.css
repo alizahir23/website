@@ -1,6 +1,19 @@
 .organisations-grid {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 120px;
+  grid-gap: 10%;
   margin: 20px 150px;
+}
+@media only screen and (max-width: 1200px) {
+  .organisations-grid {
+    grid-template-columns: auto auto;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .organisations-grid {
+    grid-template-columns: auto;
+    width: 300px;
+    margin: auto;
+    grid-gap: 5%;
+  }
 }

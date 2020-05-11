@@ -29,10 +29,10 @@ const Modal = ({ org, hideModal }) => (
         </p>
       </div>
       <div
-        className="description"
+        className={styles.description}
         style={{ marginTop: '40px', display: 'flex' }}
       >
-        <div className="left-col" style={{ width: '60%' }}>
+        <div className={styles['left-col']} style={{ width: '100%' }}>
           <h3 style={{ fontSize: '22px', fontWeight: '500' }}>Description</h3>
           <p
             style={{
@@ -48,7 +48,7 @@ const Modal = ({ org, hideModal }) => (
             {org.orgDescription}
           </p>
         </div>
-        <div className="right-col">
+        <div className={styles['right-col']}>
           <img
             src="/SVG/org-des-img.svg"
             alt="erior"
@@ -57,11 +57,12 @@ const Modal = ({ org, hideModal }) => (
         </div>
       </div>
       <div className={styles['tag-cards']}>
-        <div className="lang-tags" style={{ width: '35%' }}>
+        <div className="lang-tags">
           <h3>Languages</h3>
           {/* eslint-disable-next-line react/prop-types */}
           {org.langTags.map((tag) => (
             <p
+              key={tag}
               style={{
                 display: 'inline-block',
                 borderRadius: '10px',
@@ -78,11 +79,12 @@ const Modal = ({ org, hideModal }) => (
             </p>
           ))}
         </div>
-        <div className="topic-tags" style={{ width: '35%' }}>
+        <div className="topic-tags">
           <h3>Topics</h3>
           {/* eslint-disable-next-line react/prop-types */}
           {org.topicTags.map((tag) => (
             <p
+              key={tag}
               style={{
                 display: 'inline-block',
                 borderRadius: '10px',
@@ -99,7 +101,7 @@ const Modal = ({ org, hideModal }) => (
             </p>
           ))}
         </div>
-        <div className="links" style={{ width: '30%' }}>
+        <div className="links">
           <h3>Links</h3>
           {/* eslint-disable-next-line react/prop-types */}
           <a href={org.github}>

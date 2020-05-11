@@ -10,17 +10,7 @@ const LandingContainer = ({
     <div className={styles['landing-container']}>
       <div className={styles['left-col']}>
         <h1>{title}</h1>
-        <hr
-          style={{
-            width: '10%',
-            border: 'none',
-            backgroundColor: '#333',
-            height: '8px',
-            marginLeft: '10px',
-            marginTop: '10px',
-            marginBottom: '10px',
-          }}
-        />
+        <hr className={styles.hrLine} />
         <p>{line1}</p>
         <p>{line2}</p>
         <p>{line3}</p>

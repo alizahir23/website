@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
+import SideDrawer from './SideDrawer/SideDrawer';
 import styles from '../css/header.module.css';
+import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 
 export default function Header() {
   const router = useRouter();
 
   const [profileDD, setProfileDD] = useState(false);
+  const [sideDrawer, setSideDrawer] = useState(false);
 
   const toggleDD = () => {
     // eslint-disable-next-line no-unused-expressions
     profileDD === true ? setProfileDD(false) : setProfileDD(true);
+  };
+  const toggleSD = () => {
+    // eslint-disable-next-line no-unused-expressions
+    sideDrawer === true ? setSideDrawer(false) : setSideDrawer(true);
   };
 
   return (
@@ -58,10 +64,10 @@ export default function Header() {
             )}
           </div>
           <div className={styles.link}>
-            <Link href="/howToWork">
+            <Link href="/howtowork">
               <p>How To Work</p>
             </Link>
-            {router.pathname === '/howToWork' && (
+            {router.pathname === '/howtowork' && (
               <hr
                 style={{
                   width: '30%',
@@ -74,6 +80,10 @@ export default function Header() {
           </div>
         </div>
       )}
+      <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
+        <DrawerToggleButton className={styles['toggle-hamburger']} />
+      </div>
+      {sideDrawer && <SideDrawer handleClose={toggleSD} router={router} />}
       {router.pathname !== '/' && (
         <div className={styles.profile}>
           <div
@@ -95,6 +105,7 @@ export default function Header() {
               alt=" "
             />
           </div>
+
           {profileDD && (
             <div className={styles.dropdown}>
               <div className={styles['top-row']}>
@@ -103,13 +114,21 @@ export default function Header() {
                   <p>Ali Zahir</p>
                 </div>
                 <div className={styles['top-right-col']}>
-                  <img src="/icons/computer.png" alt=" " />
+                  <Link href="/setting">
+                    <img src="/icons/computer.png" alt=" " />
+                  </Link>
                 </div>
               </div>
               <div className={styles['bottom-row']}>
-                <div className={styles['dd-button']}>My Profile</div>
-                <div className={styles['dd-button']}>Create OSP</div>
-                <div className={styles['dd-button']}>Logout</div>
+                <Link href="/profile">
+                  <div className={styles['dd-button']}>My Profile</div>
+                </Link>
+                <Link href="/createproject">
+                  <div className={styles['dd-button']}>Create OSP</div>
+                </Link>
+                <Link href="/">
+                  <div className={styles['dd-button']}>Logout</div>
+                </Link>
               </div>
             </div>
           )}

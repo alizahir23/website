@@ -106,6 +106,7 @@ const organisation = ({ org }) => {
           {/* eslint-disable-next-line react/prop-types */}
           {org.langTags.map((tag) => (
             <p
+              key={tag}
               style={{
                 display: 'inline-block',
                 borderRadius: '10px',
