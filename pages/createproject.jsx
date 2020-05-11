@@ -1,7 +1,5 @@
 import React from 'react';
 
-const createproject = () => {
-  return <div></div>;
-};
+const createproject = () => <div />;
 
 export default createproject;

@@ -80,7 +80,7 @@ export default function Header() {
           </div>
         </div>
       )}
-      <div onClick={toggleSD}>
+      <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
         <DrawerToggleButton className={styles['toggle-hamburger']} />
       </div>
       {sideDrawer && <SideDrawer handleClose={toggleSD} router={router} />}

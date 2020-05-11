@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import DrawerToggleButton from './DrawerToggleButton';
 import styles from '../../css/sideDrawer.module.css';
 
@@ -12,7 +13,13 @@ const SideDrawer = ({ handleClose, router }) => {
   };
   return (
     <div className={styles['side-drawer']}>
-      <div onClick={handleClose} className={styles['close-button']}>
+      <div
+        role="button"
+        tabIndex={0}
+        onKeyDown={handleClose}
+        onClick={handleClose}
+        className={styles['close-button']}
+      >
         <DrawerToggleButton />
       </div>
       <div className={styles.profile}>
@@ -102,6 +109,12 @@ const SideDrawer = ({ handleClose, router }) => {
       </div>
     </div>
   );
+};
+
+SideDrawer.propTypes = {
+  handleClose: PropTypes.func.isRequired,
+  /* eslint-disable-next-line react/forbid-prop-types */
+  router: PropTypes.object.isRequired,
 };
 
 export default SideDrawer;

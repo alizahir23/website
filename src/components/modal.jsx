@@ -29,7 +29,7 @@ const Modal = ({ org, hideModal }) => (
         </p>
       </div>
       <div
-        className={styles['description']}
+        className={styles.description}
         style={{ marginTop: '40px', display: 'flex' }}
       >
         <div className={styles['left-col']} style={{ width: '100%' }}>
@@ -60,9 +60,9 @@ const Modal = ({ org, hideModal }) => (
         <div className="lang-tags">
           <h3>Languages</h3>
           {/* eslint-disable-next-line react/prop-types */}
-          {org.langTags.map((tag, index) => (
+          {org.langTags.map((tag) => (
             <p
-              key={index}
+              key={tag}
               style={{
                 display: 'inline-block',
                 borderRadius: '10px',
@@ -82,9 +82,9 @@ const Modal = ({ org, hideModal }) => (
         <div className="topic-tags">
           <h3>Topics</h3>
           {/* eslint-disable-next-line react/prop-types */}
-          {org.topicTags.map((tag, index) => (
+          {org.topicTags.map((tag) => (
             <p
-              key={index}
+              key={tag}
               style={{
                 display: 'inline-block',
                 borderRadius: '10px',

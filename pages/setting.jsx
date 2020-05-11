@@ -1,7 +1,5 @@
 import React from 'react';
 
-const setting = () => {
-  return <div></div>;
-};
+const setting = () => <div />;
 
 export default setting;
