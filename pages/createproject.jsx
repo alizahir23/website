@@ -1,5 +1,9 @@
 import React from 'react';
-
-const createproject = () => <div />;
+import Header from '../src/components/Header';
+const createproject = () => (
+  <div>
+    <Header />
+  </div>
+);
 
 export default createproject;
