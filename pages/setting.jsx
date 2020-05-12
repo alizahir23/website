@@ -7,4 +7,5 @@ const setting = () => (
   </div>
 );
 
+
 export default setting;
