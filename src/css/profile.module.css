@@ -1,147 +1,183 @@
 .usernamebox {
   max-width: 90%;
 
-  border-radius: 20px;
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  margin-left: 100px;
-  margin-right: 100px;
-  box-shadow: 0 0 5px #888888;
-  padding-bottom: 40px;
-  margin-top: 200px;
+  max-width: 90%;
+  margin-bottom: 1.875rem;
+  border-radius: 1.25rem;
+  padding-top: 0.4375rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  
+  margin-left: 6.25rem;
+  margin-right: 6.25rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 2.5rem;
+  margin-top: 6.25rem;
 }
+.padding-below{
+  margin-left:10.9375rem;
+}
+.usernamebox-profile {
+  max-width: 90%;
 
-.padding-below {
-  margin-left: 170px;
-  margin-right: 220px;
+  max-width: 90%;
+  margin-bottom: 1.875rem;
+  border-radius: 1.25rem;
+  padding-top: 0.4375rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  padding-bottom: 0.625rm;
+  margin-left: 6.25rem;
+  margin-right: 6.25rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 2.5rem;
+  margin-top: 12.5rem;
 }
 
 .imgabsolute-lower {
-  margin-top: 25px;
+  margin-top: 1.5625rem;
   position: absolute;
 }
 .imgabsolute-lowerheart {
-  margin-left: 50px;
-  margin-top: 180px;
+  margin-left: 3.125rem;
+  margin-top: 11.25rem;
   position: absolute;
 }
 .follow {
-  margin-top: 7px;
+  margin-top: 0.4375rem;
 }
 .heart {
-  margin-top: 11px;
+  margin-top: 0.6875rem;
 }
 .smallbox {
   font-weight: 600;
-  border-radius: 20px;
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-top: 50px;
-  box-shadow: 0 0 5px #888888;
-  padding-bottom: 5px;
-  width: 110px;
+  border-radius: 1.25rem;
+  padding-top: 1.25rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  margin-top: 3.125rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 0.3125rem;
+  width: 6.875rem;
 
-  margin-right: 40px;
+  margin-right: 2.5rem;
+}
+/* .smallbox-below {
+  font-weight: 600;
+  border-radius: 1.25rem;
+  padding-top: 0.3125rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.1875rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 0.3125rem;
+  height: 1.875rem;
+
+  margin-right: 2.5rem;
+} */
+.disp-flex:first-child {
+  width: 50%;
 }
 .smallbox-below {
   font-weight: 600;
-  border-radius: 20px;
-  padding-top: 5px;
-  padding-right: 8px;
-  padding-left: 8px;
-  padding-bottom: 3px;
-  box-shadow: 0 0 5px #888888;
-  padding-bottom: 5px;
-  height: 30px;
-
-  margin-right: 10px;
+  border-radius: 1.25rem;
+  padding-top: 0.3125rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.1875rem;
+  box-shadow: 0 0 0.3125rem #888888;
+  padding-bottom: 0.3125rem;
+  height: 1.875rem;
+  margin-right: 0.625rem;
 }
 .smallboxwriting {
-  margin-left: 15px;
-  margin-top: 13px;
+  margin-left: 0.9375rem;
+  margin-top: 0.8125rem;
 }
 .smallboxwriting-follow {
-  margin-left: 10px;
-  margin-top: 1px;
+  margin-left: 0.625rem;
+  margin-top: 0.625rem;
 }
 .smallboxwriting-osp {
-  margin-left: 15px;
-  margin-top: 1px;
+  margin-left: 0.9375rem;
+  margin-top: 0.0625rem;
 }
-.top-right {
-  position: absolute;
-  margin-left: 1100px;
+.user-flex {
+  display: flex;
+  justify-content: space-between;
 }
-.top-right-below {
-  position: absolute;
-  margin-left: 1050px;
+.user-flex :first-child {
+  flex-basis: 90%;
 }
+.margin {
+  margin-left: 21.875rem;
+}
+
 .top-right-in {
-  margin-left: 20px;
+  margin-left: 1.8125rem;
 }
 .usersname {
-  font-size: 35px;
+  font-size: 2.1875rem;
   font-weight: 550;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  margin-left: 10.9375rem;
+}
+.usersname-user {
+  font-size: 2.1875rem;
+  font-weight: 550;
+  margin-bottom: 0.625rem;
 }
 .usercontent {
   color: #757a7a;
 }
 .userskills {
-  font-size: 25px;
+  font-size: 1.5625rem;
   font-weight: 450;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 .boxcontent {
-  margin-left: 350px;
-  margin-top: 30px;
+  margin-left: 21.875rem;
+  margin-top: 1.875rem;
 }
 .langsec {
   display: flex;
 }
+.langsec-centre {
+  display: flex;
+  justify-content: center;
+}
 .langButtonJS {
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
   width: fit-content;
-  padding: 3px 10px 3px 10px;
-  font-size: 15px;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 450;
   border: none;
-  height: 35px;
+  height: 2.1875rem;
 
   border-style: solid;
   border-color: red;
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
-.top-right-name {
-  margin-left: 1110px;
-  position: absolute;
-  margin-top: 60px;
-}
-.top-right-line {
-  margin-left: 1100px;
-  position: absolute;
-  margin-top: 80px;
-}
+
+
 .savebutton {
   position: absolute;
-  margin-left: 1150px;
+  margin-left: 71.875rem;
 
   width: fit-content;
-  padding-top: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 15px;
+  padding-top: 0.3125rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 0.9375rem;
   font-weight: 400;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   cursor: pointer;
   border: none;
-  height: 35px;
+  height: 2.1875rem;
   color: white;
   background-color: black;
 }
@@ -149,43 +185,43 @@
   font-weight: 600;
 }
 .contentuser {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 .count {
-  font-size: 27px;
-  margin-top: 5px;
-  margin-left: 15px;
+  font-size: 1.6875rem;
+  margin-top: 0.3125rem;
+  margin-left: 0.9375rem;
 }
 .langButtonCSS {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   width: fit-content;
-  padding: 3px 10px 3px 10px;
-  font-size: 15px;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 450;
   border: none;
-  height: 35px;
+  height: 2.1875rem;
 
   border-style: solid;
   border-color: Yellow;
 }
 .langButtonCSS-below {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   width: fit-content;
-  padding: 3px 10px 3px 10px;
-  font-size: 15px;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
   font-weight: 400;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-weight: 450;
   border: none;
-  height: 35px;
-  margin-left: 20px;
+  height: 2.1875rem;
+  margin-left: 1.25rem;
   border-style: solid;
   border-color: Yellow;
 }
 .imgabsolute {
   position: absolute;
-  margin-top: -250px;
-  margin-left: -150px;
+  margin-top: -15.625rem;
+  margin-left: -9.375rem;
 }
