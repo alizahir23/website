@@ -58,7 +58,7 @@ export default function ProjectProfile() {
             </p>
           </div>
           <div className={styles.langsec}>
-            <div className={styles.langButtonJS}>
+            <div className={styles.langButtonJSnew}>
               <p>Javascript</p>
             </div>
             <div className={styles['langButtonCSS-below']}>
@@ -66,8 +66,10 @@ export default function ProjectProfile() {
             </div>
           </div>
         </div>
-        <div className={styles.savebutton}>
-          <p>Save</p>
+        <div className={styles['savebutton-align']}>
+          <div className={styles.savebutton}>
+            <p>Save</p>
+          </div>
         </div>
       </div>
     </div>

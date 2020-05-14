@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import styles from "../../css/feed.module.css";
+import React, { useState } from 'react';
+import styles from '../../css/feed.module.css';
 
 const FeedLang = () => {
   const [state, setState] = useState(false);
-  
+
   const dropDown = () => {
     if (state) {
       setState(false);
