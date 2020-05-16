@@ -12,7 +12,7 @@
   margin-right: 6.25rem;
   box-shadow: 0 0 0.3125rem #888888;
   padding-bottom: 2.5rem;
-  margin-top: 6.25rem;
+  margin-top: 4.25rem;
 }
 .padding-below{
   margin-left:10.9375rem;
@@ -52,12 +52,12 @@
 .smallbox {
   font-weight: 600;
   border-radius: 1.25rem;
-  padding-top: 1.25rem;
-  padding-right: 1.25rem;
-  padding-left: 1.25rem;
-  margin-top: 3.125rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
+  padding-left: 0.25rem;
+  margin-top: 2rem;
   box-shadow: 0 0 0.3125rem #888888;
-  padding-bottom: 0.3125rem;
+  padding-bottom: 0.2rem;
   width: 6.875rem;
 
   margin-right: 2.5rem;
@@ -81,10 +81,10 @@
 .smallbox-below {
   font-weight: 600;
   border-radius: 1.25rem;
-  padding-top: 0.3125rem;
+  padding-top: 0.2125rem;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  padding-bottom: 0.1875rem;
+  padding-bottom: 0.1275rem;
   box-shadow: 0 0 0.3125rem #888888;
   padding-bottom: 0.3125rem;
   height: 1.875rem;
@@ -92,15 +92,15 @@
 }
 .smallboxwriting {
   margin-left: 0.9375rem;
-  margin-top: 0.8125rem;
+  margin-top: 0.5125rem;
 }
 .smallboxwriting-follow {
   margin-left: 0.625rem;
-  margin-top: 0.625rem;
+  margin-top: 0.5125rem;
 }
 .smallboxwriting-osp {
   margin-left: 0.9375rem;
-  margin-top: 0.0625rem;
+  margin-top: 0.5125rem;
 }
 .user-flex {
   display: flex;
@@ -109,31 +109,35 @@
 .user-flex :first-child {
   flex-basis: 90%;
 }
-.margin {
+/* .margin {
   margin-left: 21.875rem;
-}
+} */
 
 .top-right-in {
-  margin-left: 1.8125rem;
+  margin-left: 1rem;
 }
 .usersname {
   font-size: 2.1875rem;
   font-weight: 550;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.125rem;
   margin-left: 10.9375rem;
 }
 .usersname-user {
-  font-size: 2.1875rem;
+  font-size: 2rem;
   font-weight: 550;
-  margin-bottom: 0.625rem;
+  /* margin-bottom: 0.625rem; */
 }
 .usercontent {
   color: #757a7a;
+  margin-left:1.5rem;
+  font-weight: 500;
+
 }
 .userskills {
   font-size: 1.5625rem;
   font-weight: 450;
   margin-top: 0.625rem;
+  margin-left: 1.5rem;
 }
 .boxcontent {
   margin-left: 21.875rem;
@@ -141,11 +145,14 @@
 }
 .langsec {
   display: flex;
+  
 }
 .langsec-centre {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-left:1.5rem;
 }
+
 .langButtonJS {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -162,12 +169,36 @@
   border-color: red;
   margin-top: 0.625rem;
 }
+.langButtonJSnew {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  width: fit-content;
+  padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  font-weight: 450;
+  border: none;
+  height: 2.1875rem;
 
+  
+  margin-top: 1.3rem;
+}
+.project-heading{
+  font-weight: 700;
+  font-size: 3.5rem;
+  margin-left: 9rem;
+  margin-top: 4rem;
+}
+.savebutton-align{
+  display:flex;
+  justify-content:flex-end;
+}
 
 .savebutton {
-  position: absolute;
-  margin-left: 71.875rem;
-
+  
+    /* margin-left: 71.875rem; */
+  
   width: fit-content;
   padding-top: 0.3125rem;
   padding-left: 1.25rem;
@@ -188,7 +219,7 @@
   margin-top: 1.25rem;
 }
 .count {
-  font-size: 1.6875rem;
+  font-size: 1.4rem;
   margin-top: 0.3125rem;
   margin-left: 0.9375rem;
 }
@@ -207,7 +238,7 @@
   border-color: Yellow;
 }
 .langButtonCSS-below {
-  margin-top: 0.625rem;
+  margin-top: 1.3rem;
   width: fit-content;
   padding: 0.1875rem 0.625rem 0.1875rem 0.625rem;
   font-size: 0.9375rem;
@@ -217,11 +248,11 @@
   border: none;
   height: 2.1875rem;
   margin-left: 1.25rem;
-  border-style: solid;
-  border-color: Yellow;
+  
+  
 }
 .imgabsolute {
   position: absolute;
   margin-top: -15.625rem;
-  margin-left: -9.375rem;
+  margin-left: -7.575rem;
 }
