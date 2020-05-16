@@ -5,19 +5,22 @@ export default function ProjectProfile() {
   return (
     <div>
       <div className={styles.usernamebox}>
-        <div className={styles['imgabsolute-lower']}>
-          <img src="SVG/Rectangle 217.svg" alt="project" />
-        </div>
-        <div className={styles['imgabsolute-lowerheart']}>
-          <img src="SVG/heart (1).svg" alt="like" />
-          <p>213</p>
-        </div>
-        <div className={styles['user-flex']}>
+        <div className={styles['card-top-row']}>
+          <div className={styles['card-left-col']}>
+            <div className={styles['imgabsolute-lower']}>
+              <img src="SVG/Rectangle 217.svg" alt="project" />
+            </div>
+            <div className={styles['imgabsolute-lowerheart']}>
+              <img src="SVG/heart (1).svg" alt="like" />
+              <p>213</p>
+            </div>
+          </div>
+
           <div className={styles.usersname}>
             <p>Open Source Code</p>
           </div>
           <div>
-            <div className={styles.langsec}>
+            <div className={styles['card-langsec']}>
               <div className={styles['smallbox-below']}>
                 <div className={styles.langsec}>
                   <div>
@@ -47,7 +50,6 @@ export default function ProjectProfile() {
           </div>
         </div>
         <div className={styles['padding-below']}>
-
           <div className={styles.date}>
             <p>By Organisation | 08 May 2020</p>
             <p className={styles.contentuser}>
