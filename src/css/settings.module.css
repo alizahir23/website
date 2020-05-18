@@ -176,8 +176,14 @@
 
     margin: 10px auto;
   }
+  .basic-head {
+    font-size: 46px;
+  }
 }
 @media (max-width: 630px) {
+  .basic-head {
+    font-size: 40px;
+  }
   .boxes {
     flex-direction: column;
   }
