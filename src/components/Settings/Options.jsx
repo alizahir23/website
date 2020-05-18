@@ -30,7 +30,7 @@ const SettingsFinal = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: '90%', margin: '20px auto' }}>
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
@@ -48,7 +48,10 @@ const SettingsFinal = () => {
             <button
               type="button"
               onClick={basic}
-              style={{ background: state1 ? '#00CACA' : 'white' }}
+              style={{
+                background: state1 ? '#00CACA' : 'white',
+                color: state1 ? 'white' : 'black',
+              }}
               className={styles.options}
             >
               Basic Information
@@ -56,7 +59,10 @@ const SettingsFinal = () => {
             <button
               type="button"
               onClick={about}
-              style={{ background: state2 ? '#00CACA' : 'white' }}
+              style={{
+                background: state2 ? '#00CACA' : 'white',
+                color: state2 ? 'white' : 'black',
+              }}
               className={styles.options}
             >
               About You
@@ -64,13 +70,17 @@ const SettingsFinal = () => {
             <button
               type="button"
               onClick={skill}
-              style={{ background: state3 ? '#00CACA' : 'white' }}
+              style={{
+                background: state3 ? '#00CACA' : 'white',
+                color: state3 ? 'white' : 'black',
+              }}
               className={styles.options}
             >
               Socials
             </button>
           </div>
         </div>
+
         <div
           className={styles.boxes2}
           style={{ display: state1 ? 'block' : 'none' }}

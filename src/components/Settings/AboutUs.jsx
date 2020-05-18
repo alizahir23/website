@@ -8,7 +8,10 @@ const Aboutus = () => (
     </div>
     <div className={styles.qns}>
       <p>Title</p>
-      <input className={styles.input} placeholder="Developer, Student, Programmer" />
+      <input
+        className={styles.input}
+        placeholder="Developer, Student, Programmer"
+      />
       <p>About</p>
       <input
         className={styles['input-bio']}
@@ -20,14 +23,6 @@ const Aboutus = () => (
         id="myInput"
         placeholder="Enter your skills"
       />
-      <div className={styles.flexing}>
-        <div className={styles.skill1}>
-          <p>Node</p>
-        </div>
-        <div className={styles.skill2}>
-          <p>React</p>
-        </div>
-      </div>
     </div>
   </div>
 );
