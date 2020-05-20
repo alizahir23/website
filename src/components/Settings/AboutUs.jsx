@@ -49,8 +49,7 @@ const Aboutus = () => {
         </form>
         <ul className={styles.skillList}>
           {tags.map((Tag, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <div key={index} className={styles.skill}>
+            <div key={Tag} className={styles.skill}>
               <li>{Tag}</li>
               <div
                 style={{

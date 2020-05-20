@@ -151,6 +151,7 @@
 
 .skill {
   list-style: none;
+  float: left;
   width: fit-content;
   padding: 5px 10px;
   background-color: #f7f7f7;
@@ -205,5 +206,11 @@
   }
   .boxes {
     flex-direction: column;
+  }
+  .boxes2 {
+    padding: 10px 30px;
+  }
+  .input {
+    width: 90%;
   }
 }
