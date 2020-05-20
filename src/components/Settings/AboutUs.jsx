@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styles from '../../css/settings.module.css';
 
 const Aboutus = () => {
@@ -39,6 +40,7 @@ const Aboutus = () => {
             e.preventDefault();
           }}>
           <input
+            required
             className={styles.input}
             id="myInput"
             placeholder="Enter your skills"
@@ -51,11 +53,6 @@ const Aboutus = () => {
             <div key={Tag} className={styles.skill}>
               <li>{Tag}</li>
               <div
-                style={{
-                  cursor: 'pointer',
-                  display: 'inline-block',
-                  fontWeight: '600'
-                }}
                 role="button"
                 tabIndex={0}
                 onClick={() => removeTag(index)}
