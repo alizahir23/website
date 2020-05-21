@@ -17,7 +17,7 @@ const Aboutus = () => {
   return (
     <div>
       <div className={styles['basic-head']}>
-        <p>What do you do?</p>
+        <h4 style={{ fontWeight: '500' }}>What do you do?</h4>
       </div>
       <div className={styles.qns}>
         <p>Title</p>

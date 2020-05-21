@@ -69,10 +69,16 @@
   background-color: white;
   /* margin-left: 5rem; */
 }
+.flexing-links {
+  display: flex;
+  font-weight: 500;
+}
 .flexing {
   display: flex;
   width: 80%;
   margin: initial auto;
+  justify-content: center;
+  align-items: center;
 }
 .flexing-first {
   display: flex;
@@ -178,12 +184,12 @@
     flex-direction: column;
   }
   .boxes2 {
-    width: 90%;
+    width: 99%;
     margin: 30px auto;
     padding-right: 0.8rem;
   }
   .boxes {
-    width: 90%;
+    width: 99%;
     margin: 20px auto;
     flex-direction: row;
     justify-content: space-evenly;

@@ -31,7 +31,7 @@ const SettingsFinal = () => {
   };
 
   return (
-    <div style={{ width: '90%', margin: '20px auto' }}>
+    <div style={{ width: '95%', margin: '20px auto' }}>
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
