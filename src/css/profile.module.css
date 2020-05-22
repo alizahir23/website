@@ -303,14 +303,13 @@
     font-size: 16px;
   }
   .langsec-centre {
-    display: grid;
-    grid-template-columns: auto;
+    flex-wrap: wrap;
     justify-content: center;
     margin: 30px 10px;
 
     grid-gap: 30px 60px;
   }
   .smallbox {
-    margin: 0;
+    margin: 10px;
   }
 }
