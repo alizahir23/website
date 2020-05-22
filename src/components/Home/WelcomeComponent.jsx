@@ -5,10 +5,10 @@ import styles from '../../css/home.module.css';
 export default function WelcomeComponent() {
   return (
     <div className={styles['welcome-container']}>
-
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
-          Welcome To <br /><u>Open</u> Source Code Platform
+          Welcome To <br />
+          Open Source Code Platform
         </h1>
         <p className={styles['landing-text']}>
           Search and Contribute to Some of the Best
@@ -17,29 +17,19 @@ export default function WelcomeComponent() {
         </p>
 
         <div className={styles['sign-in-buttons']}>
-          
           <button className={styles['github-button']} type="submit">
             <img
               alt="Icon-awesome-github.png"
               src="/images/Iconawesome-github.png"
             />
             <p>Sign in with Github</p>
-            <img
-              alt="Right-Arrow.svg"
-              src="/icons/arrow-right.png"
-            />
+            <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
           </button>
 
           <button className={styles['google-button']} type="submit">
-            <img
-              alt="Icon-simple-google"
-              src="/images/google.svg"
-            />
+            <img alt="Icon-simple-google" src="/images/google.svg" />
             <p>Sign in with Google</p>
-            <img
-              alt="Right-Arrow.svg"
-              src="/icons/arrow-right.png"
-            />
+            <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
           </button>
         </div>
       </div>
