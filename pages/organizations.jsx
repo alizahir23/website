@@ -1,10 +1,10 @@
 import React from 'react';
+
 import Header from '../src/components/Header';
 import LandingContainer from '../src/components/LandingContainer';
+import Organisation from '../src/components/organisation';
 import SearchBar from '../src/components/SearchBar';
 import styles from '../src/css/organisations.module.css';
-
-import Organisation from '../src/components/organisation';
 
 const organizations = () => {
   const Organisations = [
@@ -16,9 +16,9 @@ const organizations = () => {
         'Description of organisation. Random texts coming here and there. Lets enter something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that  something to fill these spaces. This is just a sample of the text that is to be entered into the boxes.',
       langTags: ['React', 'Javascript'],
       topicTags: ['Topic 1', 'Topic 2'],
-      gitHub: 'http://www.github.com',
+      github: 'http://www.github.com',
       slack: 'https://www.slack.com',
-      bgurl: '/SVG/org-bg1.png',
+      bgurl: '/SVG/org-bg1.png'
     },
     {
       organisation: 'Facebook',
@@ -29,9 +29,9 @@ const organizations = () => {
         'Description of organisation. Random texts coming here and there. Lets enter something to fill these spaces. This is just a sample of the text that is to be entered into the boxes.',
       langTags: ['React', 'Javascript'],
       topicTags: ['Topic 1', 'Topic 2'],
-      gitHub: 'http://www.github.com',
+      github: 'http://www.github.com',
       slack: 'https://www.slack.com',
-      bgurl: '/SVG/org-bg1.png',
+      bgurl: '/SVG/org-bg1.png'
     },
     {
       organisation: 'Mozilla',
@@ -42,10 +42,10 @@ const organizations = () => {
         'Description of organisation. Random texts coming here and there. Lets enter something to fill these spaces. This is just a sample of the text that is to be entered into the boxes.',
       langTags: ['React', 'Javascript'],
       topicTags: ['Topic 1', 'Topic 2'],
-      gitHub: 'http://www.github.com',
+      github: 'http://www.github.com',
       slack: 'https://www.slack.com',
-      bgurl: '/SVG/org-bg1.png',
-    },
+      bgurl: '/SVG/org-bg1.png'
+    }
   ];
 
   return (

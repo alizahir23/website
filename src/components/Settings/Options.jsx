@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
 import styles from '../../css/settings.module.css';
-import Basicinfo from './BasicInfo';
 import Aboutus from './AboutUs';
+import Basicinfo from './BasicInfo';
 import Social from './SocialHandle';
 
 const SettingsFinal = () => {
@@ -30,7 +31,9 @@ const SettingsFinal = () => {
   };
 
   return (
-    <div style={{ width: '90%', margin: '20px auto' }}>
+
+    <div style={{ width: '95%', margin: '20px auto' }}>
+
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
@@ -47,10 +50,11 @@ const SettingsFinal = () => {
               onClick={basic}
               style={{
                 background: showBasic ? '#00CACA' : 'white',
-                color: showBasic ? 'white' : 'black',
+
+                color: showBasic ? 'white' : 'black'
               }}
-              className={styles.options}
-            >
+              className={styles.options}>
+
               Basic Information
             </button>
             <button
@@ -58,10 +62,11 @@ const SettingsFinal = () => {
               onClick={about}
               style={{
                 background: showAbout ? '#00CACA' : 'white',
-                color: showAbout ? 'white' : 'black',
+
+                color: showAbout ? 'white' : 'black'
               }}
-              className={styles.options}
-            >
+              className={styles.options}>
+
               About You
             </button>
             <button
@@ -69,10 +74,11 @@ const SettingsFinal = () => {
               onClick={skill}
               style={{
                 background: showSocial ? '#00CACA' : 'white',
-                color: showSocial ? 'white' : 'black',
+
+                color: showSocial ? 'white' : 'black'
               }}
-              className={styles.options}
-            >
+              className={styles.options}>
+
               Socials
             </button>
           </div>
@@ -80,20 +86,23 @@ const SettingsFinal = () => {
 
         <div
           className={styles.boxes2}
-          style={{ display: showBasic ? 'block' : 'none' }}
-        >
+
+          style={{ display: showBasic ? 'block' : 'none' }}>
+
           <Basicinfo />
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: showAbout ? 'block' : 'none' }}
-        >
+
+          style={{ display: showAbout ? 'block' : 'none' }}>
+
           <Aboutus />
         </div>
         <div
           className={styles.boxes2}
-          style={{ display: showSocial ? 'block' : 'none' }}
-        >
+
+          style={{ display: showSocial ? 'block' : 'none' }}>
+
           <Social />
         </div>
       </div>

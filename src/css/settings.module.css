@@ -4,7 +4,9 @@
   padding-left: 3rem;
   padding-top: 3rem;
   padding-right: 3rem;
-  padding-bottom: 3rem;
+
+  padding-bottom: 30px;
+
   border-radius: 1.4rem;
   width: 25%;
   display: flex;
@@ -37,6 +39,9 @@
   width: 90%;
   margin: 20px auto;
   flex-direction: column;
+
+  padding-bottom: 20px;
+
 }
 
 .options {
@@ -68,10 +73,19 @@
   background-color: white;
   /* margin-left: 5rem; */
 }
+
+.flexing-links {
+  display: flex;
+  font-weight: 500;
+}
 .flexing {
   display: flex;
   width: 80%;
+  margin: initial auto;
+  justify-content: center;
+  align-items: center;
 }
+
 .flexing-first {
   display: flex;
   justify-content: space-evenly;
@@ -134,7 +148,9 @@
   width: 70%;
 }
 .addButton {
-  width: 10%;
+
+  width: 40px;
+
   margin: 0 20px;
   height: 40px;
   background-color: #06d1d1;
@@ -144,6 +160,7 @@
   font-size: 16px;
   cursor: pointer;
 }
+
 
 .skill > li {
   margin-right: 20px;
@@ -164,20 +181,25 @@
   justify-content: space-between;
 }
 
+.skill > div {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+}
+
 @media (max-width: 1200px) {
   .flexing-first {
     display: flex;
     flex-direction: column;
   }
   .boxes2 {
-    width: 90%;
-    margin: 50px auto;
+    width: 99%;
+    margin: 30px auto;
     padding-right: 0.8rem;
   }
   .boxes {
-    width: 90%;
-    margin: initial auto;
-
+    width: 99%;
+    margin: 20px auto;
     flex-direction: row;
     justify-content: space-evenly;
   }
@@ -205,10 +227,13 @@
     font-size: 40px;
   }
   .boxes {
+
+    padding: initial 30px;
     flex-direction: column;
   }
   .boxes2 {
-    padding: 10px 30px;
+    padding: 10px 20px;
+
   }
   .input {
     width: 90%;

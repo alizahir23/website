@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'
 import React, { useState } from 'react';
+
 import Modal from './modal';
 
-// eslint-disable-next-line react/prop-types
 const organisation = ({ org }) => {
   const [ModalShow, setModalShow] = useState(false);
 
@@ -15,28 +16,33 @@ const organisation = ({ org }) => {
   return (
     <div
       style={{
-        // eslint-disable-next-line react/prop-types
+
         background: `url(${org.bgurl}) no-repeat center`,
         minWidth: '100%',
         height: '350px',
         borderRadius: '20px',
         paddingTop: '20px',
-        boxShadow: '5px 5px 10px rgb(202, 202, 202)',
-      }}
-    >
-      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-      <img
+        boxShadow: '5px 5px 10px rgb(202, 202, 202)'
+      }}>
+      
+      <button
+        type="button"
         onKeyDown={showModal}
         onClick={showModal}
-        src="/SVG/org-view.svg"
-        alt="view"
         style={{
+          backgroundColor: 'transparent',
+          border: 'none',
           float: 'right',
           marginRight: '10px',
-          width: '30px',
-          cursor: 'pointer',
+          cursor: 'pointer'
         }}
-      />
+      >
+        <img
+          src="/SVG/org-view.svg"
+          alt="view"
+          style={{ width: '30px' }}
+        />
+      </button>
 
       <h1
         style={{
@@ -44,10 +50,9 @@ const organisation = ({ org }) => {
           paddingTop: '55px',
           marginLeft: '10px',
           fontWeight: '500',
-          fontSize: '35px',
-        }}
-      >
-        {/* eslint-disable-next-line react/prop-types */}
+          fontSize: '35px'
+        }}>
+        
         {org.organisation}
       </h1>
       <div
@@ -56,9 +61,8 @@ const organisation = ({ org }) => {
           marginTop: '2px',
           width: '100%',
           height: '220px',
-          borderRadius: '20px',
-        }}
-      >
+          borderRadius: '20px'
+        }}>
         <p
           style={{
             color: '#6D6D6D',
@@ -68,14 +72,13 @@ const organisation = ({ org }) => {
             display: '-webkit-box',
             WebkitLineClamp: '3',
             WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }}
-        >
-          {/* eslint-disable-next-line react/prop-types */}
+            overflow: 'hidden'
+          }}>
+          
           {org.orgDescription}
         </p>
         <div>
-          {/* eslint-disable-next-line react/prop-types */}
+         
           <a href={org.github}>
             <img
               src="/SVG/org-github-icon.svg"
@@ -84,11 +87,11 @@ const organisation = ({ org }) => {
                 margin: ' 0 10px',
                 marginLeft: '25px',
                 marginTop: '20px',
-                cursor: 'pointer',
+                cursor: 'pointer'
               }}
             />
           </a>
-          {/* eslint-disable-next-line react/prop-types */}
+          
           <a href={org.slack}>
             <img
               src="/SVG/org-slack-icon.svg"
@@ -96,14 +99,14 @@ const organisation = ({ org }) => {
               style={{
                 margin: ' 0 10px',
                 marginTop: '20px',
-                cursor: 'pointer',
+                cursor: 'pointer'
               }}
             />
           </a>
         </div>
 
         <div className="Tags" style={{ marginLeft: '15px' }}>
-          {/* eslint-disable-next-line react/prop-types */}
+          
           {org.langTags.map((tag) => (
             <p
               key={tag}
@@ -113,12 +116,10 @@ const organisation = ({ org }) => {
                 border: '1px black solid',
                 padding: '1px 5px',
                 fontWeight: '300',
-                fontSize: '10px',
                 margin: ' 10px 5px',
-                cursor: 'pointer',
-              }}
-            >
-              {/* eslint-disable-next-line react/prop-types */}
+                cursor: 'pointer'
+              }}>
+              
               {tag}
             </p>
           ))}
@@ -128,4 +129,20 @@ const organisation = ({ org }) => {
     </div>
   );
 };
+
+
+organisation.propTypes = {
+  org: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.string)
+  ]).isRequired,
+  bgurl:PropTypes.string.isRequired,
+  organisation: PropTypes.string.isRequired,
+  orgDescription: PropTypes.string.isRequired,
+  langTags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  github: PropTypes.string.isRequired,
+  slack: PropTypes.string.isRequired,
+};
+
 export default organisation;

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import SideDrawer from './SideDrawer/SideDrawer';
+import React, { useState } from 'react';
+
 import styles from '../css/header.module.css';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
+import SideDrawer from './SideDrawer/SideDrawer';
 
 export default function Header() {
   const router = useRouter();
@@ -43,7 +44,7 @@ export default function Header() {
                   width: '30%',
                   height: '3px',
                   backgroundColor: '#333',
-                  border: 'none',
+                  border: 'none'
                 }}
               />
             )}
@@ -58,7 +59,7 @@ export default function Header() {
                   width: '30%',
                   height: '3px',
                   backgroundColor: '#333',
-                  border: 'none',
+                  border: 'none'
                 }}
               />
             )}
@@ -73,7 +74,7 @@ export default function Header() {
                   width: '30%',
                   height: '3px',
                   backgroundColor: '#333',
-                  border: 'none',
+                  border: 'none'
                 }}
               />
             )}
@@ -81,7 +82,9 @@ export default function Header() {
         </div>
       )}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
-        <DrawerToggleButton className={styles['toggle-hamburger']} />
+        {router.pathname !== '/' && (
+          <DrawerToggleButton className={styles['toggle-hamburger']} />
+        )}
       </div>
       {sideDrawer && <SideDrawer handleClose={toggleSD} router={router} />}
       {router.pathname !== '/' && (
@@ -91,8 +94,7 @@ export default function Header() {
             tabIndex="0"
             className={styles['profile-icon']}
             onClick={toggleDD}
-            onKeyDown={toggleDD}
-          >
+            onKeyDown={toggleDD}>
             <img
               src="/icons/young-man.svg"
               alt=" "
