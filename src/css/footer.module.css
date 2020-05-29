@@ -1,34 +1,8 @@
 .footer {
   width: 100%;
-  background-image: url('../../public/SVG/footer-bg.svg');
-  background-position: right;
-  background-size: cover;
+  background-color: #f7f7f7;
+  margin-top: -10px;
   padding: 0 50px;
-}
-
-.footer-image {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.footer-image img {
-  width: 15%;
-}
-
-.footer h1 {
-  width: 80%;
-  margin: auto;
-  font-size: 3rem;
-  padding-top: 20px;
-  font-weight: 800;
-}
-
-.footer > h1 > hr {
-  height: 1rem;
-  width: 2em;
-  border-radius: 100px;
-  background-color: #000;
 }
 
 .footer-content {
@@ -94,21 +68,6 @@
 @media only screen and (max-width: 800px) {
   .footer {
     padding: 0 15px;
-    background: url('../../public/SVG/footer-bg-mobile.svg');
-    background-size: cover;
-  }
-
-  .footer-image img {
-    width: 40%;
-  }
-
-  .footer h1 {
-    width: 100%;
-    font-size: 2rem;
-  }
-
-  .footer > h1 > hr {
-    height: 0.5rem;
   }
 
   .badges > a {

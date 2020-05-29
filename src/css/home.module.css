@@ -25,14 +25,17 @@
 }
 
 .welcome-container {
+  height: 80vh;
   margin: 0 50px 20px 50px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-direction: row;
   padding-top: 50px;
 }
 
 .welcome-left {
-  max-width: 60%;
+  max-width: 50%;
 }
 
 .welcome-title {
@@ -50,13 +53,13 @@
 }
 
 .welcome-right {
-  max-width: 40%;
+  max-width: 60%;
   display: flex;
   justify-content: center;
 }
 
 .welcome-right img {
-  max-width: 80%;
+  max-width: 100%;
   float: right;
 }
 
@@ -139,10 +142,10 @@
 /* ABOUT SECTION */
 
 .about-us-container {
-  margin-top: 10vh;
+  margin-top: -10px;
   padding: 60px 20px;
   display: flex;
-  margin-bottom: 10vh;
+
   background-color: #f7f7f7;
 }
 
