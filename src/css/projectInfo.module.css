@@ -4,7 +4,7 @@
   padding: 10px 30px;
   margin-top: 20px;
   height: 70vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .top-row {
@@ -17,9 +17,11 @@
   display: flex;
   width: 50%;
 }
+
 .search-bar > input::placeholder {
   color: white;
 }
+
 .search-bar > input {
   width: 80%;
   border: none;
@@ -159,10 +161,12 @@
   .milestones {
     margin-bottom: 20px;
   }
+
   .labels,
   .milestones {
-    padding: 10px;
+    padding: 7px 10px;
   }
+
   .search-bar {
     width: 95%;
   }
@@ -172,8 +176,17 @@
   .top-row {
     margin: 10px 0;
   }
+
   .label-container {
     display: flex;
     flex-direction: column;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .data {
+    margin: 10px;
   }
 }
