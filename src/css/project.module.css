@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  margin: 30px 10px;
+  margin: 30px 30px;
   justify-content: space-evenly;
 }
 
@@ -51,6 +51,7 @@
 @media (max-width: 800px) {
   .container {
     flex-direction: column;
+    margin: 20px 10px;
   }
   .left-col {
     width: 95%;

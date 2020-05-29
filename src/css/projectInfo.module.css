@@ -1,9 +1,10 @@
 .container {
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 10px 30px;
   margin-top: 20px;
   height: 70vh;
+  overflow: scroll;
 }
 
 .top-row {
@@ -16,7 +17,9 @@
   display: flex;
   width: 50%;
 }
-
+.search-bar > input::placeholder {
+  color: white;
+}
 .search-bar > input {
   width: 80%;
   border: none;
@@ -47,7 +50,7 @@
 }
 
 .filter-label img {
-  margin: initial 10px;
+  margin: 5px 10px;
   transition-duration: 0.2s;
 }
 
@@ -84,12 +87,12 @@
   width: 180px;
   background-color: white;
   border-radius: 10px;
-  margin: initial 10px;
+  margin: 0 10px;
   display: flex;
   font-weight: 600;
   justify-content: space-between;
   align-items: center;
-  padding: initial 15px;
+  padding: 5px 15px;
   font-size: 1rem;
 }
 
@@ -109,6 +112,39 @@
   font-size: 0.8rem;
   text-align: center;
   line-height: 25px;
+}
+
+/* list */
+
+.data {
+  margin: 30px;
+}
+
+.data-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  width: 100%;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 0.3px solid rgb(192, 192, 192);
+  align-items: center;
+}
+
+.data-item:last-child {
+  border-bottom: none;
+}
+
+.tags {
+  border-radius: 20px;
+  color: white;
+  padding: 5px 20px;
+  font-size: 0.8rem;
+  background-color: #fd5353;
+}
+
+.issue-name {
+  font-weight: 600;
 }
 
 @media (max-width: 1100px) {

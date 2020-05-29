@@ -56,7 +56,180 @@ const ProjectInfo = ({ page }) => {
           </div>
         </div>
       </div>
-      {(page === 'issues' || page === 'pull-requests') && <div />}
+      {page === 'issues' && (
+        <div className={styles.data}>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+          <div className={styles['data-item']}>
+            <div className={styles['data-left-col']}>
+              <h3 className={styles['issue-name']}>Issue#1</h3>
+              <p>#23 Opened on 10 May by John</p>
+            </div>
+            <div className={styles['data-right-col']}>
+              <p className={styles.tags}>Bug</p>
+            </div>
+          </div>
+        </div>
+      )}
+      {page === 'pull-requests' && (
+        <div>
+          {' '}
+          <div className={styles.data}>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+            <div className={styles['data-item']}>
+              <div className={styles['data-left-col']}>
+                <h3 className={styles['issue-name']}>Pull Requests#1</h3>
+                <p>#23 Opened on 10 May by John</p>
+              </div>
+              <div className={styles['data-right-col']}>
+                <p className={styles.tags}>Bug</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {page === 'contribution' && <div>Contributors</div>}
     </div>
   );
 };

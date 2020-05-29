@@ -6,6 +6,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 60vh;
+  border: 1px #333 solid;
+  box-shadow: 0 0 10px #e4e4e4;
 }
 
 .top {
