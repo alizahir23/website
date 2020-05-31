@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styles from '../css/org.module.css';
 
 export default function TopOrganisation() {
+  const [Orgs, setOrgs] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch('https://api.github.com/organizations');
+      const data = await res.json();
+      setOrgs(data);
+    };
+    getData();
+  }, []);
   return (
     <div>
       <div className={styles.flex}>
         <div>
           <div className={styles.heading}>
-            <h1>Top 100 Organisations<hr /></h1>
+            <h1>
+              Top Organisations
+              <hr />
+            </h1>
           </div>
           <div className={styles['p-org']}>
             <p>Choose minimum 5 Organisation</p>
@@ -30,39 +43,19 @@ export default function TopOrganisation() {
             </div>
           </div>
         </div>
+        <div />
+
         <div className={styles['side-image']}>
           <img src="SVG/Group 122.svg" alt="imageside" />
         </div>
       </div>
-      <div className={styles['flex-below']}>
-        <div className={styles.orgs} style={{ backgroundColor: '#B9007B' }}>
-          <img src="SVG/google round.svg" alt="google" />
-          <p className={styles['box-head']}>Google</p>
-          <button type="button" className={styles.follow} style={{ color: '#B9007B' }}>
-            Follow
-          </button>
-        </div>
-        <div className={styles.orgs} style={{ backgroundColor: 'rgb(0, 119, 255)' }}>
-          <img src="SVG/linkedin round.svg" alt="google" />
-          <p className={styles['box-head']}>LinkedIn</p>
-          <button type="button" className={styles.follow} style={{ color: 'rgb(0, 119, 255)' }}>
-            Follow
-          </button>
-        </div>
-        <div className={styles.orgs} style={{ backgroundColor: 'black' }}>
-          <img src="SVG/git round.svg" alt="google" />
-          <p className={styles['box-head']}>Github</p>
-          <button type="button" className={styles.follow} style={{ color: 'black' }}>
-            Follow
-          </button>
-        </div>
-        <div className={styles.orgs} style={{ backgroundColor: 'orange' }}>
-          <img src="SVG/Group 123.svg" alt="google" />
-          <p className={styles['box-head']}>GirlScript</p>
-          <button type="button" className={styles.follow} style={{ color: 'orange' }}>
-            Follow
-          </button>
-        </div>
+      <div className={styles['org-list']}>
+        {Orgs.map((org) => (
+          <div className={styles['org-card']} key={org.id}>
+            <p>{org.login}</p>
+            <button type="button">Follow</button>
+          </div>
+        ))}
       </div>
       <button type="button" className={styles.next}>
         Next

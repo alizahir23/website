@@ -62,49 +62,6 @@
   width: 100%;
 }
 
-.flex-below {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0 16px;
-  margin-top: 40px;
-}
-
-.orgs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.orgs > img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-}
-
-.box-head {
-  color: white;
-  font-size: 1.5rem;
-  vertical-align: middle;
-  line-height: 88px;
-  padding-right: 8px;
-}
-
-.follow {
-  font-size: 1rem;
-  padding-left: 3px;
-  padding-right: 3px;
-  border-radius: 8px;
-  background-color: white;
-  width: fit-content;
-  font-weight: 550;
-}
-
 .next {
   position: relative;
   float: right;
@@ -118,13 +75,52 @@
   border-radius: 32px;
 }
 
+.org-list {
+  width: 90vw;
+  overflow-x: scroll;
+  height: 28vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.org-card {
+  width: 250px;
+  background-color: black;
+  color: white;
+  height: 10vh;
+  margin: 2vh 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.org-card > button {
+  background-color: rgb(255, 255, 255);
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.org-card > p::first-letter {
+  text-transform: uppercase;
+}
+
 @media only screen and (max-width: 1000px) {
   .search-bar {
     width: 90%;
   }
 }
 
-@media only screen and  (max-width: 800px) {
+@media only screen and (max-width: 800px) {
   .flex {
     flex-direction: column-reverse;
     justify-content: center;
@@ -153,22 +149,9 @@
   .p-org {
     text-align: center;
   }
-  
+
   .side-image {
     width: 70%;
-  }
-
-  .flex-below {
-    flex-wrap: wrap;
-    margin-top: 0;
-  }
-
-  .orgs {
-    min-width: 40%;
-    margin-top: 1rem;
-    padding: 0 8px;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
   }
 
   .next {
@@ -194,13 +177,27 @@
   .input-bar {
     width: 60%;
   }
-
-  .flex-below {
-    flex-direction: column;
+  .org-list {
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: unset;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
-
-  .orgs {
-    width: 75%;
-    margin: 0.5rem auto;
+  .org-card {
+    font-size: 1rem;
+    padding: 5px 10px;
+    width: 150px;
+    height: fit-content;
+  }
+  .org-card > p {
+    width: 55%;
+    overflow-x: hidden;
+  }
+  .org-card > button {
+    padding: 2px 5px;
+    margin: 10px 2px;
+    font-size: 0.8rem;
   }
 }
