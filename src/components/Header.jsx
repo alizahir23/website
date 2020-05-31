@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import styles from '../css/header.module.css';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
+import { UserContext } from './UserContext';
 
 export default function Header() {
   const router = useRouter();
-
+  const { user } = useContext(UserContext);
   const [profileDD, setProfileDD] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
 
@@ -100,7 +101,7 @@ export default function Header() {
               alt=" "
               className={styles['header-profile-picture']}
             />
-            <p>Ali Zahir</p>
+            <p>{user.name}</p>
             <img
               src="/SVG/Icon awesome-angle-down.svg"
               style={{ paddingLeft: '10px', width: '20px' }}
