@@ -2,11 +2,15 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 
 import '../src/css/style.css';
-import { UserContext, User } from '../src/components/UserContext';
+import UserContext from '../src/components/UserContext';
+
 // eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
   /* eslint-disable-next-line no-unused-vars */
-  const [user, setUser] = useState(User);
+  const [User, setUser] = useState({
+    name: 'Guest',
+    email: ''
+  });
 
   return (
     <>
@@ -20,7 +24,8 @@ function MyApp({ Component, pageProps }) {
 
       <UserContext.Provider
         value={{
-          user
+          User,
+          setUser
         }}>
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />

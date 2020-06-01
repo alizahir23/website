@@ -5,7 +5,7 @@ import React, { useState, useContext } from 'react';
 import styles from '../css/header.module.css';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
-import { UserContext } from './UserContext';
+import UserContext from './UserContext';
 
 export default function Header() {
   const router = useRouter();
