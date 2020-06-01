@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   /* eslint-disable-next-line no-unused-vars */
   const [User, setUser] = useState({
     name: 'Guest',
-    email: ''
+    email: 'guest@osc'
   });
 
   return (

@@ -3,13 +3,14 @@ import { useRouter } from 'next/router';
 import React, { useState, useContext } from 'react';
 
 import styles from '../css/header.module.css';
+import * as FirebaseAuth from './FirebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
 import UserContext from './UserContext';
 
 export default function Header() {
   const router = useRouter();
-  const { user } = useContext(UserContext);
+  const { User, setUser } = useContext(UserContext);       
   const [profileDD, setProfileDD] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
 
@@ -21,6 +22,16 @@ export default function Header() {
     // eslint-disable-next-line no-unused-expressions
     sideDrawer === true ? setSideDrawer(false) : setSideDrawer(true);
   };
+
+  async function handleLogout(e) {
+    e.preventDefault();
+    await FirebaseAuth.logout();
+    setUser({
+      name:"Guest",
+      email:"guest@osc"
+    });
+    router.push('/');
+  }
 
   return (
     <div className={styles.header}>
@@ -101,7 +112,7 @@ export default function Header() {
               alt=" "
               className={styles['header-profile-picture']}
             />
-            <p>{user.name}</p>
+            <p>{User.name}</p>
             <img
               src="/SVG/Icon awesome-angle-down.svg"
               style={{ paddingLeft: '10px', width: '20px' }}
@@ -114,7 +125,7 @@ export default function Header() {
               <div className={styles['top-row']}>
                 <div className={styles['top-left-col']}>
                   <img src="/icons/young-man.png" alt=" " />
-                  <p>Ali Zahir</p>
+                  <p>{User.name}</p>
                 </div>
                 <div className={styles['top-right-col']}>
                   <Link href="/setting">
@@ -129,9 +140,9 @@ export default function Header() {
                 <Link href="/createproject">
                   <div className={styles['dd-button']}>Create OSP</div>
                 </Link>
-                <Link href="/">
-                  <div className={styles['dd-button']}>Logout</div>
-                </Link>
+                <button type="button" onClick={handleLogout} className={styles['dd-button']}>
+                  Logout
+                </button>
               </div>
             </div>
           )}
