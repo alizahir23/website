@@ -1,8 +1,43 @@
-import React from 'react';
+import Router from 'next/router'
+import React,{useContext} from 'react';
 
 import styles from '../../css/home.module.css';
+import * as FirebaseAuth from '../FirebaseAuth';
+import UserContext from '../UserContext';
 
 export default function WelcomeComponent() {
+
+  const {setUser} = useContext(UserContext);
+  function changeUser(name,email) {
+    setUser({
+      name,
+      email
+    });
+  }
+
+  async function handleGoogleSignIn(e) {
+    e.preventDefault();
+    const newUser = await FirebaseAuth.GoogleSignIn();
+    if(newUser.code === undefined) {
+      changeUser(newUser.user.displayName,newUser.user.email);
+      Router.push('/feed');
+    }
+    else
+    Router.push('/');
+  }
+
+  async function handleGithubSignIn(e) {
+    e.preventDefault();
+    const newUser = await FirebaseAuth.GithubSignIn();
+    if(newUser.code === undefined) {
+      changeUser(newUser.user.displayName, newUser.user.email);
+      Router.push('/feed');
+    }
+    else {
+      Router.push('/');
+    }   
+  }
+
   return (
     <div className={styles['welcome-container']}>
       <div className={styles['welcome-left']}>
@@ -17,7 +52,7 @@ export default function WelcomeComponent() {
         </p>
 
         <div className={styles['sign-in-buttons']}>
-          <button className={styles['github-button']} type="submit">
+          <button className={styles['github-button']} type="submit" onClick={handleGithubSignIn}>
             <img
               alt="Icon-awesome-github.png"
               src="/images/Iconawesome-github.png"
@@ -26,7 +61,7 @@ export default function WelcomeComponent() {
             <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
           </button>
 
-          <button className={styles['google-button']} type="submit">
+          <button className={styles['google-button']} type="submit" onClick={handleGoogleSignIn}>
             <img alt="Icon-simple-google" src="/images/google.svg" />
             <p>Sign in with Google</p>
             <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
