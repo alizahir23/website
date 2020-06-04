@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import React, { useState, useContext } from 'react';
 
-import styles from '../../css/sideDrawer.module.css';
+import styles from '../../scss/sideDrawer.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
 import UserContext from '../UserContext';
 import DrawerToggleButton from './DrawerToggleButton';
@@ -31,7 +31,7 @@ const SideDrawer = ({ handleClose, router }) => {
         onClick={handleClose}
         className={styles['close-button']}>
         <DrawerToggleButton />
-      </div>
+       </div>
       <div className={styles.profile}>
         <div
           role="button"
