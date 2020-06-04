@@ -6,6 +6,7 @@ import styles from '../css/header.module.css';
 import * as FirebaseAuth from './FirebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
+import ToTop from "./ToTop";
 import UserContext from './UserContext';
 
 export default function Header() {
@@ -32,6 +33,7 @@ export default function Header() {
 
   return (
     <div className={styles.header}>
+      <ToTop />
       <div>
         <Link href="/">
           <img
@@ -41,7 +43,7 @@ export default function Header() {
           />
         </Link>
       </div>
-      {(router.pathname !== '/' || router.pathname !== '/toporg') && (
+      {router.pathname !== '/' && (
         <div className={styles.links}>
           <div className={styles.link}>
             <Link href="/feed">

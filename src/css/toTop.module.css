@@ -1,0 +1,35 @@
+.container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+}
+
+.container > button {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #00caca;
+  color: white;
+  opacity: 0.3;
+  animation: fadeIn 0.2s;
+
+  transition-duration: 0.2s;
+}
+
+.container > button:hover {
+  opacity: 1;
+  transition-duration: 0.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
