@@ -1,17 +1,75 @@
-import React from 'react';
+import Link from 'next/link';
+import React, { useState, useEffect, createRef } from 'react';
 
 import styles from '../scss/org.module.scss';
 
 export default function TopOrganisation() {
+  const orgListRef = createRef();
+  const list = orgListRef;
+  const searchInput = createRef();
+  const [Orgs, setOrgs] = useState([]);
+  const [followed, setFollowed] = useState([]);
+
+  // Search bar function
+
+  const search = () => {
+    const listArray = list.current.children;
+    for (let i = 0; i < Orgs.length; i += 1) {
+      if (
+        !listArray[i].firstElementChild.innerText
+          .toLowerCase()
+          .includes(searchInput.current.value.toLowerCase())
+      ) {
+        listArray[i].style.display = 'none';
+      } else {
+        listArray[i].style.display = 'flex';
+      }
+    }
+  };
+
+  // FOLLOWED FUNCTIONS
+
+  const addFollow = (name) => {
+    setFollowed([...followed, name]);
+  };
+  const removeFollow = (name) => {
+    setFollowed([...followed.filter((element) => element !== name)]);
+  };
+
+  // FETCHING ORGANISATIONS
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetch('https://api.github.com/organizations');
+      const data = await res.json();
+      setOrgs(data);
+    };
+    getData();
+  }, []);
+
+  // SLIDE BUTTONS
+
+  const slideRight = (e) => {
+    e.preventDefault();
+    list.current.scrollLeft += 600;
+  };
+  const slideLeft = (e) => {
+    e.preventDefault();
+    list.current.scrollLeft -= 600;
+  };
+
   return (
     <div>
       <div className={styles.flex}>
         <div>
           <div className={styles.heading}>
-            <h1>Top Organizations<hr /></h1>
+            <h1>
+              Top Organisations
+              <hr />
+            </h1>
           </div>
           <div className={styles['p-org']}>
-            <p>Choose minimum 5 Organizations</p>
+            <p>Choose minimum 5 Organisation</p>
           </div>
           <div className={styles['search-bar']}>
             <div className={styles['left-col']}>
@@ -23,50 +81,90 @@ export default function TopOrganisation() {
               <input
                 type="search"
                 name="Search"
+                ref={searchInput}
                 id=""
+                onKeyUp={() => search()}
                 className={styles['input-bar']}
-                placeholder="Search for Organization"
+                placeholder="Search for Organisation"
               />
             </div>
           </div>
         </div>
+        <div />
+
         <div className={styles['side-image']}>
           <img src="SVG/Group 122.svg" alt="imageside" />
         </div>
       </div>
-      <div className={styles['flex-below']}>
-        <div className={styles.orgs} style={{ backgroundColor: '#B9007B' }}>
-          <img src="SVG/google round.svg" alt="google" />
-          <p className={styles['box-head']}>Google</p>
-          <button type="button" className={styles.follow} style={{ color: '#B9007B' }}>
-            Follow
-          </button>
+      <div className={styles['org-container']}>
+        <button
+          onClick={slideLeft}
+          type="button"
+          className={styles['slide-left']}>
+          <img src="/SVG/arrow-left.svg" alt="<" />
+        </button>
+        <div ref={list} className={styles['org-list']}>
+          {Orgs.map((org) => (
+            <div
+              style={{
+                backgroundColor: followed.includes(org.login)
+                  ? '#00B9B3'
+                  : '#6C63FF'
+              }}
+              className={styles['org-card']}
+              key={org.id}>
+              <img src={org.avatar_url} alt="" />
+              <p href={`https://github.com/${org.login}`} target="blank">
+                {org.login}
+              </p>
+              <button
+                type="button"
+                style={{
+                  backgroundColor: followed.includes(org.login)
+                    ? 'black'
+                    : 'white',
+                  color: followed.includes(org.login) ? 'white' : 'black'
+                }}
+                onClick={() => {
+                  if (followed.includes(org.login) === true) {
+                    removeFollow(org.login);
+                  } else {
+                    addFollow(org.login);
+                  }
+                }}>
+                Follow
+              </button>
+            </div>
+          ))}
         </div>
-        <div className={styles.orgs} style={{ backgroundColor: 'rgb(0, 119, 255)' }}>
-          <img src="SVG/linkedin round.svg" alt="google" />
-          <p className={styles['box-head']}>LinkedIn</p>
-          <button type="button" className={styles.follow} style={{ color: 'rgb(0, 119, 255)' }}>
-            Follow
-          </button>
-        </div>
-        <div className={styles.orgs} style={{ backgroundColor: 'black' }}>
-          <img src="SVG/git round.svg" alt="google" />
-          <p className={styles['box-head']}>Github</p>
-          <button type="button" className={styles.follow} style={{ color: 'black' }}>
-            Follow
-          </button>
-        </div>
-        <div className={styles.orgs} style={{ backgroundColor: 'orange' }}>
-          <img src="SVG/Group 123.svg" alt="google" />
-          <p className={styles['box-head']}>GirlScript</p>
-          <button type="button" className={styles.follow} style={{ color: 'orange' }}>
-            Follow
-          </button>
-        </div>
+        <button
+          onClick={slideRight}
+          type="button"
+          className={styles['slide-right']}>
+          <img src="/SVG/arrow-right.svg" alt=">" />
+        </button>
       </div>
-      <button type="button" className={styles.next}>
-        Next
-      </button>
+      <div className={styles['button-container']}>
+        {followed.length > 4 ? (
+          <Link href="/toplang">
+            <button type="button" className={styles.next}>
+              Next
+            </button>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            style={{
+              cursor: 'not-allowed',
+              backgroundColor: '#727272',
+              opacity: '0.3'
+            }}
+            className={styles.next}>
+            Next
+          </button>
+        )}
+        {followed.length > 4 ? null : <p>Please make atleast 5 selections!</p>}
+      </div>
     </div>
   );
 }
