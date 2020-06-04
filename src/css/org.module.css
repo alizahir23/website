@@ -22,7 +22,7 @@
 }
 
 .search-bar {
-  width: 80%;
+  width: 100%;
   background-color: black;
   border-radius: 112px;
   padding: 7.2px 7.2px;
@@ -33,6 +33,7 @@
 
 .left-col {
   display: flex;
+  width: 100%;
 }
 
 .input-bar {
@@ -41,7 +42,7 @@
   background-color: black;
   font-size: 1.15rem;
   font-weight: 300;
-  width: 100%;
+  width: 90%;
   margin-left: 1.3rem;
   outline: none;
 }
@@ -62,23 +63,36 @@
   width: 100%;
 }
 
-.next,
-.unselect {
-  position: relative;
-  float: right;
-  width: 10%;
-  background-color: #00caca;
+.button-container {
+  display: flex;
+  width: 90%;
+  margin: 20px auto;
+  justify-content: flex-end;
+}
+
+.button-container > button {
+  padding: 10px 20px;
+  margin: 5px 20px;
+  border-radius: 20px;
+  border: none;
   color: white;
-  padding: 8px;
-  text-align: center;
-  font-size: 1.3rem;
-  margin: 32px 56px 16px 0;
-  border-radius: 32px;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.next {
+  background-color: #00caca;
 }
 
 .unselect {
-  background-color: #000000;
+  background-color: black;
+}
+
+.button-container > button:hover {
+  transition-duration: 0.2s;
+
+  opacity: 0.8;
 }
 
 .org-container {
@@ -116,8 +130,8 @@
 }
 
 .org-card > button {
-  background-color: rgb(255, 255, 255);
   color: #333;
+  background-color: none;
   border: none;
   border-radius: 20px;
   padding: 5px 10px;
@@ -192,6 +206,10 @@
     min-width: 15%;
     width: auto;
   }
+  .button-container {
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -200,6 +218,10 @@
     float: none;
     display: block;
     margin: 32px auto;
+  }
+
+  .org-list {
+    height: 60vh;
   }
 
   .side-image {
@@ -227,10 +249,10 @@
   .org-card {
     font-size: 1rem;
     padding: 5px 10px;
-    width: 150px;
+    width: fit-content;
     height: fit-content;
   }
-  .org-card > p {
+  .org-card > a {
     width: 55%;
     overflow-x: hidden;
   }
@@ -238,5 +260,8 @@
     padding: 2px 5px;
     margin: 10px 2px;
     font-size: 0.8rem;
+  }
+  .button-container {
+    flex-direction: column;
   }
 }

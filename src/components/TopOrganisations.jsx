@@ -142,17 +142,19 @@ export default function TopOrganisation() {
           <img src="/SVG/arrow-right.svg" alt=">" />
         </button>
       </div>
-      <button type="button" className={styles.next}>
-        Next
-      </button>
-      <button
-        type="button"
-        className={styles.unselect}
-        onClick={() => {
-          setFollowed([]);
-        }}>
-        Unselect All
-      </button>
+      <div className={styles['button-container']}>
+        <button
+          type="button"
+          className={styles.unselect}
+          onClick={() => {
+            setFollowed([]);
+          }}>
+          Unselect All
+        </button>
+        <button type="button" className={styles.next}>
+          Next
+        </button>
+      </div>
     </div>
   );
 }
