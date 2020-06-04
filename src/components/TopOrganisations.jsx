@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState, useEffect, createRef } from 'react';
 
 import styles from '../css/org.module.css';
@@ -112,9 +113,10 @@ export default function TopOrganisation() {
               }}
               className={styles['org-card']}
               key={org.id}>
-              <a href={`https://github.com/${org.login}`} target="blank">
+              <img src={org.avatar_url} alt="" />
+              <p href={`https://github.com/${org.login}`} target="blank">
                 {org.login}
-              </a>
+              </p>
               <button
                 type="button"
                 style={{
@@ -143,17 +145,25 @@ export default function TopOrganisation() {
         </button>
       </div>
       <div className={styles['button-container']}>
-        <button
-          type="button"
-          className={styles.unselect}
-          onClick={() => {
-            setFollowed([]);
-          }}>
-          Unselect All
-        </button>
-        <button type="button" className={styles.next}>
-          Next
-        </button>
+        {followed.length > 4 ? (
+          <Link href="/toplang">
+            <button type="button" className={styles.next}>
+              Next
+            </button>
+          </Link>
+        ) : (
+          <button
+            type="button"
+            style={{
+              cursor: 'not-allowed',
+              backgroundColor: '#727272',
+              opacity: '0.3'
+            }}
+            className={styles.next}>
+            Next
+          </button>
+        )}
+        {followed.length > 4 ? null : <p>Please make atleast 5 selections!</p>}
       </div>
     </div>
   );

@@ -98,7 +98,7 @@ export default function Header() {
         )}
       </div>
       {sideDrawer && <SideDrawer handleClose={toggleSD} router={router} />}
-      {router.pathname !== '/' && (
+      {router.pathname !== '/' && router.pathname !== '/toporg' ? (
         <div className={styles.profile}>
           <div
             role="button"
@@ -149,7 +149,7 @@ export default function Header() {
             </div>
           )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 }

@@ -11,7 +11,6 @@ const ToTop = () => {
   };
 
   const checkScrollTop = () => {
-    console.log(window.pageYOffset);
     if (!showScroll && window.pageYOffset > 400) {
       setShowScroll(true);
     } else {
