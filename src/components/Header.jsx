@@ -6,7 +6,7 @@ import styles from '../css/header.module.css';
 import * as FirebaseAuth from './FirebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
-import ToTop from "./ToTop";
+import ToTop from './ToTop';
 import UserContext from './UserContext';
 
 export default function Header() {
@@ -43,7 +43,7 @@ export default function Header() {
           />
         </Link>
       </div>
-      {router.pathname !== '/' && (
+      {router.pathname !== '/' && router.pathname !== '/toporg' ? (
         <div className={styles.links}>
           <div className={styles.link}>
             <Link href="/feed">
@@ -91,7 +91,7 @@ export default function Header() {
             )}
           </div>
         </div>
-      )}
+      ) : null}
       <div tabIndex={0} role="button" onKeyDown={toggleSD} onClick={toggleSD}>
         {router.pathname !== '/' && (
           <DrawerToggleButton className={styles['toggle-hamburger']} />
