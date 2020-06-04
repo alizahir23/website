@@ -14,9 +14,10 @@ export default function TopOrganisation() {
 
   const search = () => {
     const listArray = list.current.children;
+    console.log(listArray[0]);
     for (let i = 0; i < Orgs.length; i += 1) {
       if (
-        !listArray[i].firstElementChild.innerText
+        !listArray[i].children[1].innerText
           .toLowerCase()
           .includes(searchInput.current.value.toLowerCase())
       ) {
