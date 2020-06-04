@@ -14,7 +14,6 @@ export default function TopOrganisation() {
 
   const search = () => {
     const listArray = list.current.children;
-    console.log(listArray[0]);
     for (let i = 0; i < Orgs.length; i += 1) {
       if (
         !listArray[i].children[1].innerText
@@ -98,12 +97,16 @@ export default function TopOrganisation() {
         </div>
       </div>
       <div className={styles['org-container']}>
-        <button
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+        <img
+          onKeyDown={slideLeft}
+          src="/SVG/arrow-left.svg"
+          alt="<"
           onClick={slideLeft}
           type="button"
-          className={styles['slide-left']}>
-          <img src="/SVG/arrow-left.svg" alt="<" />
-        </button>
+          className={styles['slide-left']}
+        />
+
         <div ref={list} className={styles['org-list']}>
           {Orgs.map((org) => (
             <div
@@ -138,12 +141,15 @@ export default function TopOrganisation() {
             </div>
           ))}
         </div>
-        <button
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+        <img
+          onKeyDown={slideRight}
+          src="/SVG/arrow-right.svg"
           onClick={slideRight}
           type="button"
-          className={styles['slide-right']}>
-          <img src="/SVG/arrow-right.svg" alt=">" />
-        </button>
+          className={styles['slide-right']}
+          alt=">"
+        />
       </div>
       <div className={styles['button-container']}>
         {followed.length > 4 ? (
