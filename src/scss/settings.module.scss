@@ -1,12 +1,9 @@
+@import 'variables';
+
 .boxes {
-  box-shadow: 0 0px 8px #e4e4e4;
+  box-shadow: $box-shadow-light;
   margin-top: 4rem;
-  padding-left: 3rem;
-  padding-top: 3rem;
-  padding-right: 3rem;
-
-  padding-bottom: 30px;
-
+  @include padding-all(3rem, 3rem, 30px, 3rem);
   border-radius: 1.4rem;
   width: 25%;
   display: flex;
@@ -14,12 +11,10 @@
   height: fit-content;
 }
 .boxes2 {
-  box-shadow: 0 0px 8px #e4e4e4;
+  box-shadow: $box-shadow-light;
   margin-left: 2rem;
   margin-top: 4rem;
-  padding-left: 4rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  @include padding-all(3rem, 0rem, 3rem, 4rem);
   border-radius: 2rem;
   height: fit-content;
   margin-bottom: 2rem;
@@ -41,7 +36,6 @@
   flex-direction: column;
 
   padding-bottom: 20px;
-
 }
 
 .options {
@@ -59,7 +53,7 @@
   /* margin-left: 5rem; */
 }
 .options:hover {
-  box-shadow: 0 0 5px #e6e6e6;
+  box-shadow: $box-shadow-pale;
   transition-duration: 0.1s;
 }
 .options:last-child {
@@ -79,10 +73,10 @@
   font-weight: 500;
 }
 .flexing {
-  display: flex;
   width: 80%;
   margin: initial auto;
   justify-content: center;
+  display: flex;
   align-items: center;
 }
 
@@ -111,7 +105,7 @@
   padding-top: 0.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
-  border-bottom: 0.7px solid #c4c4c4;
+  border-bottom: $border-bstyle;
 }
 
 .input:focus,
@@ -133,7 +127,7 @@
   padding-top: 2.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
-  border-bottom: 0.7px solid #c4c4c4;
+  border-bottom: $border-bstyle;
 }
 
 .icon-padding {
@@ -148,7 +142,6 @@
   width: 70%;
 }
 .addButton {
-
   width: 40px;
 
   margin: 0 20px;
@@ -160,7 +153,6 @@
   font-size: 16px;
   cursor: pointer;
 }
-
 
 .skill > li {
   margin-right: 20px;
@@ -227,13 +219,11 @@
     font-size: 40px;
   }
   .boxes {
-
     padding: initial 30px;
     flex-direction: column;
   }
   .boxes2 {
     padding: 10px 20px;
-
   }
   .input {
     width: 90%;

@@ -1,10 +1,10 @@
+@import 'variables';
+
+
 .big-box {
-  box-shadow: 0 0 0.3125rem #888888;
+  @include padding-all(3rem,1.5rem,1.5rem,1.5rem);
+  box-shadow: $box-shadow-dark;
   border-radius: 1rem;
-  padding-top: 3rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-bottom: 1.5rem;
   margin-left: 3rem;
   margin-right: 3rem;
   margin-bottom: 2.5rem;
@@ -37,14 +37,10 @@
   width: 70%;
 }
 .smallbox-below {
+  //@include padding-all(0.2125rem,0.5rem,0.3125rem,0.5rem);
   font-weight: 600;
   border-radius: 1.25rem;
-  padding-top: 0.2125rem;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  padding-bottom: 0.1275rem;
-  box-shadow: 0 0 0.3125rem #888888;
-  padding-bottom: 0.3125rem;
+  box-shadow: $box-shadow-dark;
   height: 1.875rem;
   margin-right: 0.625rem;
 }
@@ -63,6 +59,7 @@
 .save-syntax {
   width: fit-content;
   padding-top: 0.3125rem;
+  padding-bottom: 1.5rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   font-size: 0.9375rem;
@@ -84,7 +81,7 @@
   }
 
   .big-box {
-  box-shadow: 0 0 0.3125rem #888888;
+  box-shadow: $box-shadow-dark;
   border-radius: 1rem;
   margin:3rem 15px;
   padding : 0;
