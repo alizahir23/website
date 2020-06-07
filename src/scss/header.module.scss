@@ -21,10 +21,11 @@
 .link {
   padding: 0 30px;
   font-weight: 500;
+  p {
+    cursor: pointer;
+  }
 }
-.link p {
-  cursor: pointer;
-}
+
 .header-profile-picture {
   width: 40px;
   border-radius: 50%;

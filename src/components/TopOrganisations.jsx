@@ -97,15 +97,13 @@ export default function TopOrganisation() {
         </div>
       </div>
       <div className={styles['org-container']}>
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-        <img
-          onKeyDown={slideLeft}
-          src="/SVG/arrow-left.svg"
-          alt="<"
-          onClick={slideLeft}
+        <button
           type="button"
-          className={styles['slide-left']}
-        />
+          onKeyDown={slideLeft}
+          onClick={slideLeft}
+          className={styles['slide-left']}>
+          <img src="/SVG/arrow-left.svg" alt="<" type="button" />
+        </button>
 
         <div ref={list} className={styles['org-list']}>
           {Orgs.map((org) => (
@@ -141,15 +139,14 @@ export default function TopOrganisation() {
             </div>
           ))}
         </div>
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-        <img
-          onKeyDown={slideRight}
-          src="/SVG/arrow-right.svg"
-          onClick={slideRight}
+
+        <button
           type="button"
-          className={styles['slide-right']}
-          alt=">"
-        />
+          onKeyDown={slideRight}
+          onClick={slideRight}
+          className={styles['slide-right']}>
+          <img src="/SVG/arrow-right.svg" alt=">" type="button" />
+        </button>
       </div>
       <div className={styles['button-container']}>
         {followed.length > 4 ? (
