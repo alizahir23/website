@@ -1,14 +1,27 @@
-import Link from 'next/link';
-import React, { useState, useEffect, createRef } from 'react';
+import Router from 'next/router';
+import React, { useState, useEffect, createRef, useContext } from 'react';
 
+import firebase from '../firebase';
 import styles from '../scss/org.module.scss';
+import UserContext from "./UserContext";
 
 export default function TopOrganisation() {
+  const { User } = useContext(UserContext);
   const orgListRef = createRef();
   const list = orgListRef;
   const searchInput = createRef();
   const [Orgs, setOrgs] = useState([]);
   const [followed, setFollowed] = useState([]);
+  const db = firebase.firestore();
+
+  // SUBMITTING ORGANISATIONS
+
+  const submitOrganisations = () => {
+    db.collection('users').doc(User.uid).update({
+      followingOrganisations: followed
+    });
+    Router.replace('/toplang');
+  };
 
   // Search bar function
 
@@ -150,11 +163,12 @@ export default function TopOrganisation() {
       </div>
       <div className={styles['button-container']}>
         {followed.length > 4 ? (
-          <Link href="/toplang">
-            <button type="button" className={styles.next}>
-              Next
-            </button>
-          </Link>
+          <button
+            type="button"
+            onClick={submitOrganisations}
+            className={styles.next}>
+            Next
+          </button>
         ) : (
           <button
             type="button"
