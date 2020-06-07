@@ -10,5 +10,4 @@ const org = () => (
   </div>
 );
 
-
 export default org;
