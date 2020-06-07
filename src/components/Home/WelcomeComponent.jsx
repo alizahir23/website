@@ -18,7 +18,6 @@ export default function WelcomeComponent() {
   async function handleGoogleSignIn(e) {
     e.preventDefault();
     const newUser = await FirebaseAuth.GoogleSignIn();
-
     if (newUser.code === undefined) {
       changeUser(
         newUser.user.displayName,
