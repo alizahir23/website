@@ -1,15 +1,15 @@
 import Router from 'next/router';
-import React, { useState, createRef, useContext } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 
 import firebase from '../firebase';
 import styles from '../scss/org.module.scss';
-import UserContext from "./UserContext";
+import UserContext from './UserContext';
 
 export default function TopOrganisation() {
   const { User } = useContext(UserContext);
-  const orgListRef = createRef();
+  const orgListRef = useRef();
   const list = orgListRef;
-  const searchInput = createRef();
+  const searchInput = useRef();
   // const [Langs, setLangs] = useState([]);
   const Langs = [
     'Javascript1',

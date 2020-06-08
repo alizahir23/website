@@ -43,7 +43,9 @@ export default function Header() {
           />
         </Link>
       </div>
-      {router.pathname !== '/' && router.pathname !== '/toporg' ? (
+      {router.pathname !== '/' &&
+      router.pathname !== '/toporg' &&
+      router.pathname !== '/toplang' ? (
         <div className={styles.links}>
           <div className={styles.link}>
             <Link href="/feed">
@@ -98,7 +100,9 @@ export default function Header() {
         )}
       </div>
       {sideDrawer && <SideDrawer handleClose={toggleSD} router={router} />}
-      {router.pathname !== '/' && router.pathname !== '/toporg' ? (
+      {router.pathname !== '/' &&
+      router.pathname !== '/toporg' &&
+      router.pathname !== '/toplang' ? (
         <div className={styles.profile}>
           <div
             role="button"
