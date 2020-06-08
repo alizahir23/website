@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import firebase from '../firebase';
 import styles from '../scss/org.module.scss';
@@ -7,10 +7,9 @@ import UserContext from './UserContext';
 
 export default function TopOrganisation() {
   const { User } = useContext(UserContext);
-  const orgListRef = useRef();
-  const list = orgListRef;
-  const searchInput = useRef();
+  const [searchInput, setSearchInput] = useState('');
   const [Orgs, setOrgs] = useState([]);
+  const [list, setList] = useState([]);
   const [followed, setFollowed] = useState([]);
   const db = firebase.firestore();
 
@@ -25,18 +24,14 @@ export default function TopOrganisation() {
 
   // Search bar function
 
-  const search = () => {
-    const listArray = list.current.children;
-    for (let i = 0; i < Orgs.length; i += 1) {
-      if (
-        !listArray[i].children[1].innerText
-          .toLowerCase()
-          .includes(searchInput.current.value.toLowerCase())
-      ) {
-        listArray[i].style.display = 'none';
-      } else {
-        listArray[i].style.display = 'flex';
-      }
+  const search = (e) => {
+    if (e.target.value !== '') {
+      const newList = Orgs.filter((org) => {
+        return org.login.includes(e.target.value.toLowerCase());
+      });
+      setList(newList);
+    } else {
+      setList(Orgs);
     }
   };
 
@@ -56,6 +51,7 @@ export default function TopOrganisation() {
       const res = await fetch('https://api.github.com/organizations');
       const data = await res.json();
       setOrgs(data);
+      setList(data);
     };
     getData();
   }, []);
@@ -94,9 +90,12 @@ export default function TopOrganisation() {
               <input
                 type="search"
                 name="Search"
-                ref={searchInput}
+                onChange={(e) => {
+                  setSearchInput(e.target.value);
+                }}
+                value={searchInput}
                 id=""
-                onKeyUp={() => search()}
+                onKeyUp={(e) => search(e)}
                 className={styles['input-bar']}
                 placeholder="Search for Organisation"
               />
@@ -118,39 +117,43 @@ export default function TopOrganisation() {
           <img src="/SVG/arrow-left.svg" alt="<" type="button" />
         </button>
 
-        <div ref={list} className={styles['org-list']}>
-          {Orgs.map((org) => (
-            <div
-              style={{
-                backgroundColor: followed.includes(org.login)
-                  ? '#00B9B3'
-                  : '#6C63FF'
-              }}
-              className={styles['org-card']}
-              key={org.id}>
-              <img src={org.avatar_url} alt="" />
-              <p href={`https://github.com/${org.login}`} target="blank">
-                {org.login}
-              </p>
-              <button
-                type="button"
+        <div className={styles['org-list']}>
+          {list.length !== 0 ? (
+            list.map((org) => (
+              <div
                 style={{
                   backgroundColor: followed.includes(org.login)
-                    ? 'black'
-                    : 'white',
-                  color: followed.includes(org.login) ? 'white' : 'black'
+                    ? '#00B9B3'
+                    : '#6C63FF'
                 }}
-                onClick={() => {
-                  if (followed.includes(org.login) === true) {
-                    removeFollow(org.login);
-                  } else {
-                    addFollow(org.login);
-                  }
-                }}>
-                Follow
-              </button>
-            </div>
-          ))}
+                className={styles['org-card']}
+                key={org.id}>
+                <img src={org.avatar_url} alt="" />
+                <p href={`https://github.com/${org.login}`} target="blank">
+                  {org.login}
+                </p>
+                <button
+                  type="button"
+                  style={{
+                    backgroundColor: followed.includes(org.login)
+                      ? 'black'
+                      : 'white',
+                    color: followed.includes(org.login) ? 'white' : 'black'
+                  }}
+                  onClick={() => {
+                    if (followed.includes(org.login) === true) {
+                      removeFollow(org.login);
+                    } else {
+                      addFollow(org.login);
+                    }
+                  }}>
+                  Follow
+                </button>
+              </div>
+            ))
+          ) : (
+            <p>No results...</p>
+          )}
         </div>
 
         <button

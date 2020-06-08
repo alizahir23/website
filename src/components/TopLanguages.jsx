@@ -1,5 +1,5 @@
 import Router from 'next/router';
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import firebase from '../firebase';
 import styles from '../scss/org.module.scss';
@@ -7,42 +7,40 @@ import UserContext from './UserContext';
 
 export default function TopOrganisation() {
   const { User } = useContext(UserContext);
-  const orgListRef = useRef();
-  const list = orgListRef;
-  const searchInput = useRef();
-  // const [Langs, setLangs] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
   const Langs = [
-    'Javascript1',
-    'Javascript2',
-    'Javascript3',
-    'Javascript4',
-    'Javascript5',
-    'Javascript6',
-    'Javascript7',
-    'Javascript8',
-    'Javascript9',
-    'Javascript10',
-    'Javascript11',
-    'Javascript12',
-    'Javascript13',
-    'Javascript14',
-    'Javascript15',
-    'Javascript16',
-    'Javascript17',
-    'Javascript18',
-    'Javascript19',
-    'Javascript20',
-    'Javascript21',
-    'Javascript22',
-    'Javascript23',
-    'Javascript24',
-    'Javascript25',
-    'Javascript26',
-    'Javascript27',
-    'Javascript28',
-    'Javascript29',
-    'Javascript30'
+    'javascript1',
+    'javascript2',
+    'javascript3',
+    'javascript4',
+    'javascript5',
+    'javascript6',
+    'javascript7',
+    'javascript8',
+    'javascript9',
+    'javascript10',
+    'javascript11',
+    'javascript12',
+    'javascript13',
+    'javascript14',
+    'javascript15',
+    'javascript16',
+    'javascript17',
+    'javascript18',
+    'javascript19',
+    'javascript20',
+    'javascript21',
+    'javascript22',
+    'javascript23',
+    'javascript24',
+    'javascript25',
+    'javascript26',
+    'javascript27',
+    'javascript28',
+    'javascript29',
+    'javascript30'
   ];
+  const [list, setList] = useState(Langs);
   const [followed, setFollowed] = useState([]);
   const db = firebase.firestore();
 
@@ -57,18 +55,14 @@ export default function TopOrganisation() {
 
   // Search bar function
 
-  const search = () => {
-    const listArray = list.current.children;
-    for (let i = 0; i < Langs.length; i += 1) {
-      if (
-        !listArray[i].children[1].innerText
-          .toLowerCase()
-          .includes(searchInput.current.value.toLowerCase())
-      ) {
-        listArray[i].style.display = 'none';
-      } else {
-        listArray[i].style.display = 'flex';
-      }
+  const search = (e) => {
+    if (e.target.value !== '') {
+      const newList = Langs.filter((lang) => {
+        return lang.includes(e.target.value.toLowerCase());
+      });
+      setList(newList);
+    } else {
+      setList(Langs);
     }
   };
 
@@ -126,11 +120,14 @@ export default function TopOrganisation() {
               <input
                 type="search"
                 name="Search"
-                ref={searchInput}
+                onChange={(e) => {
+                  setSearchInput(e.target.value);
+                }}
+                value={searchInput}
                 id=""
-                onKeyUp={() => search()}
+                onKeyUp={(e) => search(e)}
                 className={styles['input-bar']}
-                placeholder="Search for Organisation"
+                placeholder="Search for Languages..."
               />
             </div>
           </div>
@@ -150,34 +147,42 @@ export default function TopOrganisation() {
           <img src="/SVG/arrow-left.svg" alt="<" type="button" />
         </button>
 
-        <div ref={list} className={styles['org-list']}>
-          {Langs.map((lang) => (
-            <div
-              key={lang}
-              style={{
-                backgroundColor: followed.includes(lang) ? '#00B9B3' : '#6C63FF'
-              }}
-              className={styles['org-card']}>
-              <p href={`https://github.com/${lang}`} target="blank">
-                {lang}
-              </p>
-              <button
-                type="button"
+        <div className={styles['org-list']}>
+          {list.length !== 0 ? (
+            list.map((lang) => (
+              <div
+                key={lang}
                 style={{
-                  backgroundColor: followed.includes(lang) ? 'black' : 'white',
-                  color: followed.includes(lang) ? 'white' : 'black'
+                  backgroundColor: followed.includes(lang)
+                    ? '#00B9B3'
+                    : '#6C63FF'
                 }}
-                onClick={() => {
-                  if (followed.includes(lang) === true) {
-                    removeFollow(lang);
-                  } else {
-                    addFollow(lang);
-                  }
-                }}>
-                Follow
-              </button>
-            </div>
-          ))}
+                className={styles['org-card']}>
+                <p href={`https://github.com/${lang}`} target="blank">
+                  {lang}
+                </p>
+                <button
+                  type="button"
+                  style={{
+                    backgroundColor: followed.includes(lang)
+                      ? 'black'
+                      : 'white',
+                    color: followed.includes(lang) ? 'white' : 'black'
+                  }}
+                  onClick={() => {
+                    if (followed.includes(lang) === true) {
+                      removeFollow(lang);
+                    } else {
+                      addFollow(lang);
+                    }
+                  }}>
+                  Follow
+                </button>
+              </div>
+            ))
+          ) : (
+            <p>No results...</p>
+          )}
         </div>
 
         <button
