@@ -86,17 +86,6 @@ export default function TopOrganisation() {
   //   getData();
   // }, []);
 
-  // SLIDE BUTTONS
-
-  const slideRight = (e) => {
-    e.preventDefault();
-    list.current.scrollLeft += 600;
-  };
-  const slideLeft = (e) => {
-    e.preventDefault();
-    list.current.scrollLeft -= 600;
-  };
-
   return (
     <div>
       <div className={styles.flex}>
@@ -139,14 +128,6 @@ export default function TopOrganisation() {
         </div>
       </div>
       <div className={styles['org-container']}>
-        <button
-          type="button"
-          onKeyDown={slideLeft}
-          onClick={slideLeft}
-          className={styles['slide-left']}>
-          <img src="/SVG/arrow-left.svg" alt="<" type="button" />
-        </button>
-
         <div className={styles['org-list']}>
           {list.length !== 0 ? (
             list.map((lang) => (
@@ -176,7 +157,7 @@ export default function TopOrganisation() {
                       addFollow(lang);
                     }
                   }}>
-                  Follow
+                  {followed.includes(lang) ? 'Followed' : 'Follow'}
                 </button>
               </div>
             ))
@@ -184,14 +165,6 @@ export default function TopOrganisation() {
             <p>No results...</p>
           )}
         </div>
-
-        <button
-          type="button"
-          onKeyDown={slideRight}
-          onClick={slideRight}
-          className={styles['slide-right']}>
-          <img src="/SVG/arrow-right.svg" alt=">" type="button" />
-        </button>
       </div>
       <div className={styles['button-container']}>
         {followed.length > 4 ? (
