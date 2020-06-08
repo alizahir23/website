@@ -35,16 +35,19 @@ export default function WelcomeComponent() {
   async function handleGithubSignIn(e) {
     e.preventDefault();
     const newUser = await FirebaseAuth.GithubSignIn();
+
     if (newUser.code === undefined) {
       changeUser(
         newUser.user.displayName,
         newUser.user.email,
         newUser.user.uid
       );
-      Router.replace('/feed');
-    } else {
-      Router.push('/');
-    }
+      if (newUser.additionalUserInfo.isNewUser) {
+        Router.replace('/toporg');
+      } else {
+        Router.replace('/feed');
+      }
+    } else Router.push('/');
   }
 
   return (
