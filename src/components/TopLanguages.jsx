@@ -186,7 +186,9 @@ export default function TopOrganisation() {
             Finish
           </button>
         )}
-        {followed.length > 4 ? null : <p>Please make atleast 5 selections!</p>}
+        {followed.length > 4 ? null : (
+          <p className={styles.alert}>Please make atleast 5 selections!</p>
+        )}
       </div>
     </div>
   );

@@ -97,6 +97,7 @@ export default function TopOrganisation() {
           <img src="SVG/Group 122.svg" alt="imageside" />
         </div>
       </div>
+
       <div className={styles['org-container']}>
         <div className={styles['org-list']}>
           {list.length !== 0 ? (
@@ -157,7 +158,9 @@ export default function TopOrganisation() {
             Next
           </button>
         )}
-        {followed.length > 4 ? null : <p>Please make atleast 5 selections!</p>}
+        {followed.length > 4 ? null : (
+          <p className={styles.alert}>Please make atleast 5 selections!</p>
+        )}
       </div>
     </div>
   );
