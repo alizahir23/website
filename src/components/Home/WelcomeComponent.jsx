@@ -1,11 +1,14 @@
 import Router from 'next/router';
 import React, { useContext } from 'react';
 
+import { toast } from 'react-toastify';
+
 import styles from '../../scss/home.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
 import UserContext from '../UserContext';
 
 export default function WelcomeComponent() {
+
   const { setUser } = useContext(UserContext);
   function changeUser(name, email, uid) {
     setUser({
@@ -29,7 +32,17 @@ export default function WelcomeComponent() {
       } else {
         Router.replace('/feed');
       }
-    } else Router.push('/');
+    } else     if (newUser.code !== 'auth/popup-closed-by-user') { 
+      
+      if (newUser.code === 'auth/network-request-failed')
+        toast.error('Could not connect to the server. Please check your internet connection.');
+      else if (newUser.code === 'auth/user-disabled')
+        toast.error('This account has been disabled by the administrator.');
+      else
+        toast.error('An error occurred while logging in.');
+      }
+    return null;
+
   }
 
   async function handleGithubSignIn(e) {
@@ -47,11 +60,21 @@ export default function WelcomeComponent() {
       } else {
         Router.replace('/feed');
       }
-    } else Router.push('/');
+    } else if (newUser.code !== 'auth/popup-closed-by-user') {
+      if (newUser.code === 'auth/network-request-failed')
+        toast.error('Could not connect to the server. Please check your internet connection.');
+      else if (newUser.code === 'auth/user-disabled')
+        toast.error('This account has been disabled by the administrator.');
+      else
+        toast.error('An error occurred while logging in.');
+      }
+       return null;
+
   }
 
   return (
     <div className={styles['welcome-container']}>
+
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
           Welcome To <br />
