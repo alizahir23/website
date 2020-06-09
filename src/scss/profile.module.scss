@@ -1,6 +1,14 @@
-
 @import 'variables';
-
+.loading {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 60px;
+  }
+}
 .usernamebox {
   max-width: 90%;
   margin: 0px auto;
@@ -12,11 +20,11 @@
   margin-left: 10.9375rem;
 }
 .usernamebox-profile {
-  max-width: 90%;
+  max-width: 80%;
   margin: 80px auto;
   border-radius: 20px;
   padding: 20px;
-  box-shadow: $box-shadow-dimensions #bbbbbb;;
+  box-shadow: $box-shadow-dimensions #bbbbbb;
 }
 
 .imgabsolute-lower {
@@ -40,7 +48,7 @@
 .smallbox {
   font-weight: 600;
   border-radius: 1.25rem;
-  @include padding-all(0.25rem,0.25rem,0.2rem,0.25rem);
+  @include padding-all(0.25rem, 0.25rem, 0.2rem, 0.25rem);
   margin-top: 2rem;
   box-shadow: $box-shadow-dark;
   width: 6.875rem;
@@ -57,7 +65,7 @@
 .smallbox-below {
   font-weight: 600;
   border-radius: 1.25rem;
-  @include padding-all(0.2125rem,0.5rem,0.3125rem,0.5rem);
+  @include padding-all(0.2125rem, 0.5rem, 0.3125rem, 0.5rem);
   box-shadow: $box-shadow-dark;
   height: 1.875rem;
   margin-right: 0.625rem;
@@ -92,8 +100,10 @@
   /* margin-bottom: 0.625rem; */
 }
 .usercontent {
-  color: #757a7a;
-  font-weight: 300;
+  color: #505050;
+  margin: 20px 30px;
+  font-weight: 400;
+  font-size: 1.1rem;
   margin-bottom: 20px;
 }
 .userskills {
@@ -101,6 +111,16 @@
   font-weight: 450;
   margin-top: 0.625rem;
   margin-left: 1.5rem;
+}
+.skill {
+  border-radius: 20px;
+  background-color: #bcfdff;
+  padding: 5px 10px;
+  margin: 2px 5px;
+  font-size: 0.8rem;
+}
+.skill:first-of-type {
+  margin-left: 0;
 }
 .boxcontent {
   width: 70%;
@@ -113,6 +133,7 @@
 .langsec {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px 0;
 }
 
 .links {
@@ -213,8 +234,6 @@
   width: 20%;
   margin: 20px;
   min-width: 120px;
-  position: relative;
-  top: -90px;
   box-shadow: 0 10px 10px #b4b4b4;
   border-radius: 20px;
 }
