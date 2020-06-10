@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 import firebase from '../firebase'
 
 export async function GoogleSignIn() {
+
   const provider = new firebase.auth.GoogleAuthProvider();
   /*
       Define Required  Scopes here
@@ -14,6 +15,7 @@ export async function GoogleSignIn() {
       email: result.user.email,
       uid: result.user.uid,
     });
+
 
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid };
     const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
@@ -28,6 +30,14 @@ export async function GithubSignIn() {
 
   const provider = new firebase.auth.GithubAuthProvider();
   return firebase.auth().signInWithPopup(provider).then((result) => {
+
+    const db = firebase.firestore();
+    db.collection('users').doc(result.user.uid).set({
+      name: result.user.displayName,
+      email: result.user.email,
+      uid: result.user.uid
+    });
+
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid };
     const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
     localStorage.setItem('osc-app-token', newSecureToken);

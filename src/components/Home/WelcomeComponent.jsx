@@ -1,5 +1,7 @@
-import Router from 'next/router'
-import React,{useContext} from 'react';
+import Router from 'next/router';
+import React, { useContext } from 'react';
+
+import { toast } from 'react-toastify';
 
 import styles from '../../scss/home.module.scss';
 import * as FirebaseAuth from '../FirebaseAuth';
@@ -7,8 +9,8 @@ import UserContext from '../UserContext';
 
 export default function WelcomeComponent() {
 
-  const {setUser} = useContext(UserContext);
-  function changeUser(name,email,uid) {
+  const { setUser } = useContext(UserContext);
+  function changeUser(name, email, uid) {
     setUser({
       name,
       email,
@@ -19,28 +21,60 @@ export default function WelcomeComponent() {
   async function handleGoogleSignIn(e) {
     e.preventDefault();
     const newUser = await FirebaseAuth.GoogleSignIn();
-    if(newUser.code === undefined) {
-      changeUser(newUser.user.displayName,newUser.user.email,newUser.user.uid);
-      Router.replace('/feed');
-    }
-    else
-    Router.push('/');
+    if (newUser.code === undefined) {
+      changeUser(
+        newUser.user.displayName,
+        newUser.user.email,
+        newUser.user.uid
+      );
+      if (newUser.additionalUserInfo.isNewUser) {
+        Router.replace('/toporg');
+      } else {
+        Router.replace('/feed');
+      }
+    } else     if (newUser.code !== 'auth/popup-closed-by-user') { 
+      
+      if (newUser.code === 'auth/network-request-failed')
+        toast.error('Could not connect to the server. Please check your internet connection.');
+      else if (newUser.code === 'auth/user-disabled')
+        toast.error('This account has been disabled by the administrator.');
+      else
+        toast.error('An error occurred while logging in.');
+      }
+    return null;
+
   }
 
   async function handleGithubSignIn(e) {
     e.preventDefault();
     const newUser = await FirebaseAuth.GithubSignIn();
-    if(newUser.code === undefined) {
-      changeUser(newUser.user.displayName, newUser.user.email, newUser.user.uid);
-      Router.replace('/feed');
-    }
-    else {
-      Router.push('/');
-    }   
+
+    if (newUser.code === undefined) {
+      changeUser(
+        newUser.user.displayName,
+        newUser.user.email,
+        newUser.user.uid
+      );
+      if (newUser.additionalUserInfo.isNewUser) {
+        Router.replace('/toporg');
+      } else {
+        Router.replace('/feed');
+      }
+    } else if (newUser.code !== 'auth/popup-closed-by-user') {
+      if (newUser.code === 'auth/network-request-failed')
+        toast.error('Could not connect to the server. Please check your internet connection.');
+      else if (newUser.code === 'auth/user-disabled')
+        toast.error('This account has been disabled by the administrator.');
+      else
+        toast.error('An error occurred while logging in.');
+      }
+       return null;
+
   }
 
   return (
     <div className={styles['welcome-container']}>
+
       <div className={styles['welcome-left']}>
         <h1 className={styles['welcome-title']}>
           Welcome To <br />
@@ -53,7 +87,10 @@ export default function WelcomeComponent() {
         </p>
 
         <div className={styles['sign-in-buttons']}>
-          <button className={styles['github-button']} type="submit" onClick={handleGithubSignIn}>
+          <button
+            className={styles['github-button']}
+            type="submit"
+            onClick={handleGithubSignIn}>
             <img
               alt="Icon-awesome-github.png"
               src="/images/Iconawesome-github.png"
@@ -62,7 +99,10 @@ export default function WelcomeComponent() {
             <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
           </button>
 
-          <button className={styles['google-button']} type="submit" onClick={handleGoogleSignIn}>
+          <button
+            className={styles['google-button']}
+            type="submit"
+            onClick={handleGoogleSignIn}>
             <img alt="Icon-simple-google" src="/images/google.svg" />
             <p>Sign in with Google</p>
             <img alt="Right-Arrow.svg" src="/icons/arrow-right.png" />
