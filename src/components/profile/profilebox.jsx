@@ -24,7 +24,7 @@ export default function BoxProfile() {
 
   if (Loading)
     return (
-      <div className={styles.loading}>
+      <div className="loading">
         <img src="/SVG/loading.svg" alt="loading..." />
       </div>
     );
@@ -55,7 +55,7 @@ export default function BoxProfile() {
               </p>
 
               <p className={styles['username-skill']}>{UserData.title}</p>
-              <div className={styles.langsec}>
+              <div className={styles.langsecSkill}>
                 {UserData.skills
                   ? UserData.skills.map((skill) => {
                       return (

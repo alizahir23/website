@@ -5,7 +5,16 @@
   font-family: 'Poppins', sans-serif;
   outline: none;
 }
-
+.loading {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 60px;
+  }
+}
 .header-logo {
   width: 200px;
 }
@@ -27,7 +36,6 @@
   height: 3px;
   background: black;
 }
-
 
 .Toastify__toast {
   border-radius: 1rem;
