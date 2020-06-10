@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import firebase from '../../firebase';
 import styles from '../../scss/profile.module.scss';
+import Spinner from '../Spinner';
 import UserContext from '../UserContext';
 
 export default function BoxProfile() {
@@ -22,12 +23,8 @@ export default function BoxProfile() {
         });
   }, [User]);
 
-  if (Loading)
-    return (
-      <div className="loading">
-        <img src="/SVG/loading.svg" alt="loading..." />
-      </div>
-    );
+  if (Loading) return <Spinner />;
+
   return (
     <div>
       {/* {MissingData ? (
