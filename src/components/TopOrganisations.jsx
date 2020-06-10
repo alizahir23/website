@@ -1,29 +1,37 @@
-import Link from 'next/link';
-import React, { useState, useEffect, createRef } from 'react';
+import Router from 'next/router';
+import React, { useState, useEffect, useContext } from 'react';
 
+import firebase from '../firebase';
 import styles from '../scss/org.module.scss';
+import UserContext from './UserContext';
 
 export default function TopOrganisation() {
-  const orgListRef = createRef();
-  const list = orgListRef;
-  const searchInput = createRef();
+  const { User } = useContext(UserContext);
+  const [searchInput, setSearchInput] = useState('');
   const [Orgs, setOrgs] = useState([]);
+  const [list, setList] = useState([]);
   const [followed, setFollowed] = useState([]);
+  const db = firebase.firestore();
+
+  // SUBMITTING ORGANISATIONS
+
+  const submitOrganisations = () => {
+    db.collection('users').doc(User.uid).update({
+      followingOrganisations: followed
+    });
+    Router.replace('/toplang');
+  };
 
   // Search bar function
 
-  const search = () => {
-    const listArray = list.current.children;
-    for (let i = 0; i < Orgs.length; i += 1) {
-      if (
-        !listArray[i].children[1].innerText
-          .toLowerCase()
-          .includes(searchInput.current.value.toLowerCase())
-      ) {
-        listArray[i].style.display = 'none';
-      } else {
-        listArray[i].style.display = 'flex';
-      }
+  const search = (e) => {
+    if (e.target.value !== '') {
+      const newList = Orgs.filter((org) => {
+        return org.login.includes(e.target.value.toLowerCase());
+      });
+      setList(newList);
+    } else {
+      setList(Orgs);
     }
   };
 
@@ -43,20 +51,10 @@ export default function TopOrganisation() {
       const res = await fetch('https://api.github.com/organizations');
       const data = await res.json();
       setOrgs(data);
+      setList(data);
     };
     getData();
   }, []);
-
-  // SLIDE BUTTONS
-
-  const slideRight = (e) => {
-    e.preventDefault();
-    list.current.scrollLeft += 600;
-  };
-  const slideLeft = (e) => {
-    e.preventDefault();
-    list.current.scrollLeft -= 600;
-  };
 
   return (
     <div>
@@ -81,11 +79,14 @@ export default function TopOrganisation() {
               <input
                 type="search"
                 name="Search"
-                ref={searchInput}
+                onChange={(e) => {
+                  setSearchInput(e.target.value);
+                }}
+                value={searchInput}
                 id=""
-                onKeyUp={() => search()}
+                onKeyUp={(e) => search(e)}
                 className={styles['input-bar']}
-                placeholder="Search for Organisation"
+                placeholder="Search for Organisations..."
               />
             </div>
           </div>
@@ -96,65 +97,55 @@ export default function TopOrganisation() {
           <img src="SVG/Group 122.svg" alt="imageside" />
         </div>
       </div>
-      <div className={styles['org-container']}>
-        <button
-          type="button"
-          onKeyDown={slideLeft}
-          onClick={slideLeft}
-          className={styles['slide-left']}>
-          <img src="/SVG/arrow-left.svg" alt="<" type="button" />
-        </button>
 
-        <div ref={list} className={styles['org-list']}>
-          {Orgs.map((org) => (
-            <div
-              style={{
-                backgroundColor: followed.includes(org.login)
-                  ? '#00B9B3'
-                  : '#6C63FF'
-              }}
-              className={styles['org-card']}
-              key={org.id}>
-              <img src={org.avatar_url} alt="" />
-              <p href={`https://github.com/${org.login}`} target="blank">
-                {org.login}
-              </p>
-              <button
-                type="button"
+      <div className={styles['org-container']}>
+        <div className={styles['org-list']}>
+          {list.length !== 0 ? (
+            list.map((org) => (
+              <div
                 style={{
                   backgroundColor: followed.includes(org.login)
-                    ? 'black'
-                    : 'white',
-                  color: followed.includes(org.login) ? 'white' : 'black'
+                    ? '#00B9B3'
+                    : '#6C63FF'
                 }}
-                onClick={() => {
-                  if (followed.includes(org.login) === true) {
-                    removeFollow(org.login);
-                  } else {
-                    addFollow(org.login);
-                  }
-                }}>
-                Follow
-              </button>
-            </div>
-          ))}
+                className={styles['org-card']}
+                key={org.id}>
+                <img src={org.avatar_url} alt="" />
+                <p href={`https://github.com/${org.login}`} target="blank">
+                  {org.login}
+                </p>
+                <button
+                  type="button"
+                  style={{
+                    backgroundColor: followed.includes(org.login)
+                      ? 'black'
+                      : 'white',
+                    color: followed.includes(org.login) ? 'white' : 'black'
+                  }}
+                  onClick={() => {
+                    if (followed.includes(org.login) === true) {
+                      removeFollow(org.login);
+                    } else {
+                      addFollow(org.login);
+                    }
+                  }}>
+                  {followed.includes(org.login) ? 'Followed' : 'Follow'}
+                </button>
+              </div>
+            ))
+          ) : (
+            <p>No results...</p>
+          )}
         </div>
-
-        <button
-          type="button"
-          onKeyDown={slideRight}
-          onClick={slideRight}
-          className={styles['slide-right']}>
-          <img src="/SVG/arrow-right.svg" alt=">" type="button" />
-        </button>
       </div>
       <div className={styles['button-container']}>
         {followed.length > 4 ? (
-          <Link href="/toplang">
-            <button type="button" className={styles.next}>
-              Next
-            </button>
-          </Link>
+          <button
+            type="button"
+            onClick={submitOrganisations}
+            className={styles.next}>
+            Next
+          </button>
         ) : (
           <button
             type="button"
@@ -167,7 +158,9 @@ export default function TopOrganisation() {
             Next
           </button>
         )}
-        {followed.length > 4 ? null : <p>Please make atleast 5 selections!</p>}
+        {followed.length > 4 ? null : (
+          <p className={styles.alert}>Please make atleast 5 selections!</p>
+        )}
       </div>
     </div>
   );
