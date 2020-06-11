@@ -54,15 +54,17 @@ export default function BoxProfile() {
 
               <p className={styles['username-skill']}>{UserData.title}</p>
               <div className={styles.langsecSkill}>
-                {UserData.skills
-                  ? UserData.skills.map((skill) => {
-                      return (
-                        <div key={skill} className={styles.skill}>
-                          <p>{skill}</p>
-                        </div>
-                      );
-                    })
-                  : 'No skills...'}
+                {UserData.skills ? (
+                  UserData.skills.map((skill) => {
+                    return (
+                      <div key={skill} className={styles.skill}>
+                        <p>{skill}</p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
+                )}
               </div>
             </div>
           </div>
