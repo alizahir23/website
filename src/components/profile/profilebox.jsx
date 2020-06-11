@@ -46,7 +46,7 @@ export default function BoxProfile() {
               </h2>
               <hr
                 className={styles.hr}
-                style={{ width: '20%', color: '#707070' }}
+                style={{ width: '20%', border: '0.5px solid #333' }}
               />
               <p style={{ fontWeight: '200' }}>
                 {UserData.userName && `@${UserData.userName}`}
