@@ -20,6 +20,9 @@ const ToTop = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', checkScrollTop);
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
   }, []);
 
   return (
