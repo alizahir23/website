@@ -2,10 +2,11 @@ import Head from 'next/head';
 import Router from 'next/router';
 import React, { useState, useEffect } from 'react';
 
-import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import * as FirebaseAuth from '../src/components/FirebaseAuth';
+import 'react-toastify/dist/ReactToastify.css';
+
 import '../src/scss/style.scss';
 import UserContext from '../src/components/UserContext';
 
