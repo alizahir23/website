@@ -67,7 +67,11 @@
 .user-flex {
   display: flex;
   justify-content: space-between;
-  background-color: #ecfeff;
+  background-image: linear-gradient(
+    60deg,
+    rgb(138, 212, 212),
+    rgb(197, 255, 195)
+  );
   padding: 20px 30px;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
@@ -232,12 +236,19 @@
   margin-left: 1.25rem;
 }
 .imgabsolute {
-  width: 120px;
-  height: 120px;
-  margin: 20px;
-  min-width: 120px;
-  border: 8px solid #abe4eb;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin: auto;
   border-radius: 500px;
+}
+
+.imgabsolute-border {
+  background-image: linear-gradient(rgb(117, 238, 238), rgb(49, 226, 152));
+  border-radius: 50%;
+  padding: 10px;
+  height: 170px;
+  width: 170px;
 }
 
 .username-skill {
@@ -273,6 +284,7 @@
   }
   .usernamebox-profile {
     margin-top: 50px;
+    margin-bottom: 0px;
   }
   .links {
     margin-left: 20px;
@@ -287,10 +299,23 @@
   .usernamebox-profile {
     width: 100%;
     margin-top: 0;
+
     box-shadow: none;
     border-radius: 0;
     background-color: #f7f7f7;
     padding-bottom: 50px;
+  }
+
+  .imgabsolute-border {
+    margin: 10px auto;
+    height: 110px;
+    width: 110px;
+    padding: 5px;
+  }
+
+  .imgabsolute {
+    height: 100px;
+    width: 100px;
   }
   .hr {
     display: none;
@@ -298,11 +323,7 @@
   .usercontent {
     padding: 10px 5px;
   }
-  .imgabsolute {
-    position: unset;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
   .boxcontent {
     text-align: center;
     margin-right: auto;

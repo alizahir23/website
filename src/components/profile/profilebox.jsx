@@ -33,12 +33,13 @@ export default function BoxProfile() {
       <div className={styles['usernamebox-profile']}>
         <div className={styles['user-flex']}>
           <div className={styles['top-left-col']}>
-            <img
-              className={styles.imgabsolute}
-              src="SVG/Rectangle 60.svg"
-              alt="Profile pic"
-            />
-
+            <div className={styles['imgabsolute-border']}>
+              <img
+                className={styles.imgabsolute}
+                src="SVG/Rectangle 60.svg"
+                alt="Profile pic"
+              />
+            </div>
             <div className={styles.boxcontent}>
               <h2 className={styles['usersname-user']}>
                 {UserData.name && UserData.name}
