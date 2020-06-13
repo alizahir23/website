@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
+import firebase from '../firebase';
 import styles from '../scss/header.module.scss';
 import * as FirebaseAuth from './FirebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
 import SideDrawer from './SideDrawer/SideDrawer';
+import Spinner from './Spinner';
 import ToTop from './ToTop';
 import UserContext from './UserContext';
 
@@ -14,6 +16,23 @@ export default function Header() {
   const { User, setUser } = useContext(UserContext);
   const [profileDD, setProfileDD] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
+  const [Loading, setLoading] = useState(true);
+  const [UserData, setUserData] = useState({});
+  const db = firebase.firestore();
+  // const [MissingData, setMissingData] = useState(false);
+
+  useEffect(() => {
+    if (User)
+      db.collection('users')
+        .doc(User.uid)
+        .get()
+        .then((data) => {
+          setUserData(data.data());
+          setLoading(false);
+        });
+  }, [User]);
+
+  if (Loading) return <Spinner />;
 
   const toggleDD = () => {
     // eslint-disable-next-line no-unused-expressions
@@ -111,8 +130,8 @@ export default function Header() {
             onClick={toggleDD}
             onKeyDown={toggleDD}>
             <img
-              src="/icons/young-man.svg"
-              alt=" "
+              src={UserData.profileImageUrl}
+              alt="me"
               className={styles['header-profile-picture']}
             />
             {User !== null && <p> {User.name} </p>}
@@ -127,7 +146,7 @@ export default function Header() {
             <div className={styles.dropdown}>
               <div className={styles['top-row']}>
                 <div className={styles['top-left-col']}>
-                  <img src="/icons/young-man.png" alt=" " />
+                  <img src={UserData.profileImageUrl} alt="me" />
                   {User !== null && <p> {User.name} </p>}
                 </div>
                 <div className={styles['top-right-col']}>

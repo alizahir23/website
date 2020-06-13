@@ -36,7 +36,7 @@ export default function BoxProfile() {
             <div className={styles['imgabsolute-border']}>
               <img
                 className={styles.imgabsolute}
-                src="SVG/Rectangle 60.svg"
+                src={UserData.profileImageUrl}
                 alt="Profile pic"
               />
             </div>
@@ -70,6 +70,13 @@ export default function BoxProfile() {
           </div>
 
           <div className={styles.links}>
+            {UserData.website && (
+              <div>
+                <a href={UserData.website} target="blank">
+                  <img src="SVG/link.png" alt="link" />
+                </a>
+              </div>
+            )}
             {UserData.github && (
               <div>
                 <a href={UserData.github} target="blank">

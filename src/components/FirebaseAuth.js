@@ -14,6 +14,7 @@ export async function GoogleSignIn() {
       name: result.user.displayName,
       email: result.user.email,
       uid: result.user.uid,
+      profileImageUrl: result.user.photoURL
     });
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid };
     const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
@@ -33,7 +34,8 @@ export async function GithubSignIn() {
     db.collection('users').doc(result.user.uid).set({
       name: result.user.displayName,
       email: result.user.email,
-      uid: result.user.uid
+      uid: result.user.uid,
+      profileImageUrl: result.user.photoURL
     });
 
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid };

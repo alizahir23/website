@@ -144,7 +144,7 @@
 }
 
 .links {
-  width: 20%;
+  width: fit-content;
   margin-bottom: 50px;
   display: flex;
 }
@@ -153,10 +153,10 @@
   display: flex;
   justify-content: space-evenly;
 }
-.links > div > img {
+.links img {
   cursor: pointer;
-  width: 80%;
-  min-width: 30px;
+  margin: 10px 5px;
+  width: 50px;
 }
 
 .langButtonJS {

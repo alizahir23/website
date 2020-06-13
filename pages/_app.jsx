@@ -25,6 +25,7 @@ function MyApp({ Component, pageProps }) {
           email: verificationResult.email,
           uid: verificationResult.uid
         });
+        console.log(verificationResult);
         if (Router.pathname === '/') {
           Router.replace('/feed');
         }
