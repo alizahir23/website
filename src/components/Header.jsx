@@ -28,8 +28,8 @@ export default function Header() {
         .get()
         .then((data) => {
           setUserData(data.data());
-          setLoading(false);
         });
+    setLoading(false);
   }, [User]);
 
   if (Loading) return <Spinner />;
