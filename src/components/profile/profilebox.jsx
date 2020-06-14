@@ -36,7 +36,11 @@ export default function BoxProfile() {
             <div className={styles['imgabsolute-border']}>
               <img
                 className={styles.imgabsolute}
-                src={UserData.profileImageUrl}
+                src={
+                  UserData.profileImageUrl
+                    ? UserData.profileImageUrl
+                    : '/SVG/user.svg'
+                }
                 alt="Profile pic"
               />
             </div>
@@ -72,28 +76,40 @@ export default function BoxProfile() {
           <div className={styles.links}>
             {UserData.website && (
               <div>
-                <a href={UserData.website} target="blank">
+                <a
+                  href={UserData.website}
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <img src="SVG/link.png" alt="link" />
                 </a>
               </div>
             )}
             {UserData.github && (
               <div>
-                <a href={UserData.github} target="blank">
-                  <img src="SVG/social-media.svg" alt="github" />
+                <a
+                  href={UserData.github}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="SVG/github.svg" alt="github" />
                 </a>
               </div>
             )}
-            {UserData.linkedin && (
-              <div className={styles['top-right-in']}>
-                <a href={UserData.linkedin}>
+            {UserData.linkedIn && (
+              <div>
+                <a
+                  href={UserData.linkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <img src="SVG/Linkedin.svg" alt="linkedin" />
                 </a>
               </div>
             )}
             {UserData.twitter && (
-              <div className={styles['top-right-in']}>
-                <a href={UserData.twitter}>
+              <div>
+                <a
+                  href={UserData.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <img src="SVG/twitter.svg" alt="twitter" />
                 </a>
               </div>

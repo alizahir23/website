@@ -130,7 +130,11 @@ export default function Header() {
             onClick={toggleDD}
             onKeyDown={toggleDD}>
             <img
-              src={UserData.profileImageUrl}
+              src={
+                UserData.profileImageUrl
+                  ? UserData.profileImageUrl
+                  : '/SVG/user.svg'
+              }
               alt="me"
               className={styles['header-profile-picture']}
             />
@@ -146,7 +150,14 @@ export default function Header() {
             <div className={styles.dropdown}>
               <div className={styles['top-row']}>
                 <div className={styles['top-left-col']}>
-                  <img src={UserData.profileImageUrl} alt="me" />
+                  <img
+                    src={
+                      UserData.profileImageUrl
+                        ? UserData.profileImageUrl
+                        : '/SVG/user.svg'
+                    }
+                    alt="me"
+                  />
                   {User !== null && <p> {User.name} </p>}
                 </div>
                 <div className={styles['top-right-col']}>
