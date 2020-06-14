@@ -1,11 +1,9 @@
-
-
 @import 'variables';
 
 .boxes {
   box-shadow: $box-shadow-light;
   margin-top: 4rem;
-  @include padding-all(3rem,3rem,30px,3rem);
+  @include padding-all(3rem, 3rem, 30px, 3rem);
   border-radius: 1.4rem;
   width: 25%;
   display: flex;
@@ -16,7 +14,7 @@
   box-shadow: $box-shadow-light;
   margin-left: 2rem;
   margin-top: 4rem;
-  @include padding-all(3rem,0rem,3rem,4rem);
+  @include padding-all(3rem, 0rem, 3rem, 4rem);
   border-radius: 2rem;
   height: fit-content;
   margin-bottom: 2rem;
@@ -36,6 +34,7 @@
   width: 90%;
   margin: 20px auto;
   flex-direction: column;
+
   padding-bottom: 20px;
 }
 
@@ -68,6 +67,7 @@
   background-color: white;
   /* margin-left: 5rem; */
 }
+
 .flexing-links {
   display: flex;
   font-weight: 500;
@@ -79,6 +79,7 @@
   display: flex;
   align-items: center;
 }
+
 .flexing-first {
   display: flex;
   justify-content: space-evenly;
@@ -157,6 +158,7 @@
 }
 .addButton {
   width: 40px;
+
   margin: 0 20px;
   height: 40px;
   background-color: #06d1d1;
@@ -227,6 +229,7 @@
   }
   .option-flex {
     width: 90%;
+
     margin: 10px auto;
   }
   .basic-head {

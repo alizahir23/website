@@ -53,7 +53,9 @@ const Aboutus = () => {
   return (
     <div>
       <div className={styles['basic-head']}>
+
         <h4 style={{ fontWeight: '500' }}>What do you do?</h4>
+
       </div>
       <div className={styles.qns}>
         <p>Title</p>
@@ -78,9 +80,11 @@ const Aboutus = () => {
             setTag('');
             e.target.reset();
             e.preventDefault();
+
           }}>
           <input
             required
+
             className={styles.input}
             id="myInput"
             placeholder="Enter your skills"
@@ -93,10 +97,12 @@ const Aboutus = () => {
             <div key={Tag} className={styles.skill}>
               <li>{Tag}</li>
               <div
+
                 role="button"
                 tabIndex={0}
                 onClick={() => removeTag(index)}
                 onKeyDown={() => removeTag(index)}>
+
                 x
               </div>
             </div>
