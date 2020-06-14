@@ -36,7 +36,7 @@ export default function BoxProfile() {
             <div className={styles['imgabsolute-border']}>
               <img
                 className={styles.imgabsolute}
-                src="SVG/Rectangle 60.svg"
+                src={UserData.profileImageUrl}
                 alt="Profile pic"
               />
             </div>
@@ -71,22 +71,22 @@ export default function BoxProfile() {
 
           <div className={styles.links}>
             {UserData.github && (
-              <div>
+              <div className={styles['top-right-in']}>
                 <a href={UserData.github} target="blank">
                   <img src="SVG/social-media.svg" alt="github" />
                 </a>
               </div>
             )}
-            {UserData.linkedin && (
+            {UserData.linkedIn && (
               <div className={styles['top-right-in']}>
-                <a href={UserData.linkedin}>
+                <a href={UserData.linkedIn} target="blank">
                   <img src="SVG/Linkedin.svg" alt="linkedin" />
                 </a>
               </div>
             )}
             {UserData.twitter && (
               <div className={styles['top-right-in']}>
-                <a href={UserData.twitter}>
+                <a href={UserData.twitter} target="blank">
                   <img src="SVG/twitter.svg" alt="twitter" />
                 </a>
               </div>

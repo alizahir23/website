@@ -3,7 +3,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { toast } from 'react-toastify';
 
 import { setAboutInfo, storedUserData } from '../../firestore/profileSettings';
+import * as FormValidation from '../../FormValidation';
 import styles from '../../scss/settings.module.scss';
+import LinearLoader from '../LinearLoader';
 import UserContext from '../UserContext';
 
 const Aboutus = () => {
@@ -11,6 +13,10 @@ const Aboutus = () => {
   const [tags, setTags] = useState([]);
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
+  const [Loading, setLoading] = useState(false);
+  const [titleError, setTitleError] = useState(null);
+  const [aboutError, setAboutError] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   const {User} = useContext(UserContext);
 
   useEffect(()=>{
@@ -24,10 +30,21 @@ const Aboutus = () => {
     }
     if (User)
     getBasicInfo();
-  },[User]);
+  }, [User]);
+  
+  useEffect(() => {
+    if ((aboutError === null) && (titleError === null)) {
+      setIsDisabled(false);
+    }
+    else {
+      setIsDisabled(true);
+    }
+  }, [titleError, aboutError]);
+
 
   async function handleFormSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     const {uid} = User;
     const formData = {
       title,
@@ -35,11 +52,15 @@ const Aboutus = () => {
       skills:tags,
       uid
     };
+    
+
     const response = await setAboutInfo(formData);
     if (response.status === 'success')
       toast.success(<div><img src='/icons/save-icon.svg' alt="save" /> About Information Updated Successfully </div>);
     if (response.status === 'error')
       toast.error(<div><img src='/icons/error-icon.svg' alt="error" /> Some Error Occurred! Please try again later. </div>);
+
+    setLoading(false);
   }
 
   const onChange = (e) => {
@@ -58,18 +79,27 @@ const Aboutus = () => {
       <div className={styles.qns}>
         <p>Title</p>
         <input
-          className={styles.input}
+          className={`${styles.input} ${titleError !== null ? styles.invalid : ''} `}
           value={title}
-          onChange={(e)=>setTitle(e.currentTarget.value)}
+          onChange={(e) => { 
+            setTitle(e.currentTarget.value); 
+            setTitleError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 50));
+          }}
           placeholder="Developer, Student, Programmer"
         />
+        <p id='titleError' className='input-field-error'>{titleError}</p>
         <p>About</p>
+        <span id={styles['about-info-count']}>{about.length} / 200</span>
         <input
-          className={styles['input-bio']}
+          className={`${styles['input-bio']} ${aboutError !== null ? styles.invalid : ''} `}
           value={about}
-          onChange={(e) => setAbout(e.currentTarget.value)}
-          placeholder="A short bio of less than 120 characters"
+          onChange={(e) => {
+            setAbout(e.currentTarget.value); 
+            setAboutError(FormValidation.checkLengthLimit(e.currentTarget.value.length, 200));
+          }}
+          placeholder="A short bio of less than 200 characters"
         />
+        <p id='aboutInfoError' className='input-field-error'>{aboutError}</p>
         <p>Skills</p>
         <form
           className={styles.skills}
@@ -104,8 +134,12 @@ const Aboutus = () => {
         </div>
       </div>
       <br />
-      <button type="button" className={styles.submitButton} onClick={handleFormSubmit}>Save</button>
-
+      { !Loading &&
+        <button type="button" className={styles.submitButton} onClick={handleFormSubmit} disabled={isDisabled}>Save</button>
+      }
+      { Loading &&
+        <LinearLoader />
+      }
     </div>
   );
 };
