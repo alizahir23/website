@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
 
-import firebase from '../firebase';
 import styles from '../scss/header.module.scss';
 import * as FirebaseAuth from './FirebaseAuth';
 import DrawerToggleButton from './SideDrawer/DrawerToggleButton';
@@ -17,19 +16,13 @@ export default function Header() {
   const [profileDD, setProfileDD] = useState(false);
   const [sideDrawer, setSideDrawer] = useState(false);
   const [Loading, setLoading] = useState(true);
-  const [UserData, setUserData] = useState({});
-  const db = firebase.firestore();
+
   // const [MissingData, setMissingData] = useState(false);
 
   useEffect(() => {
-    if (User)
-      db.collection('users')
-        .doc(User.uid)
-        .get()
-        .then((data) => {
-          setUserData(data.data());
-        });
-    setLoading(false);
+    if (User) {
+      setLoading(false);
+    }
   }, [User]);
 
   if (Loading) return <Spinner />;
@@ -131,9 +124,7 @@ export default function Header() {
             onKeyDown={toggleDD}>
             <img
               src={
-                UserData.profileImageUrl
-                  ? UserData.profileImageUrl
-                  : '/SVG/user.svg'
+                User.profileImageUrl ? User.profileImageUrl : '/SVG/user.svg'
               }
               alt="me"
               className={styles['header-profile-picture']}
@@ -152,8 +143,8 @@ export default function Header() {
                 <div className={styles['top-left-col']}>
                   <img
                     src={
-                      UserData.profileImageUrl
-                        ? UserData.profileImageUrl
+                      User.profileImageUrl
+                        ? User.profileImageUrl
                         : '/SVG/user.svg'
                     }
                     alt="me"

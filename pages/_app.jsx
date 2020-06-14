@@ -24,9 +24,9 @@ function MyApp({ Component, pageProps }) {
         setUser({
           name: verificationResult.name,
           email: verificationResult.email,
-          uid: verificationResult.uid
+          uid: verificationResult.uid,
+          profileImageUrl: verificationResult.profileImageUrl
         });
-        console.log(verificationResult);
         if (Router.pathname === '/') {
           Router.replace('/feed');
         }

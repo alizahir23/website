@@ -90,7 +90,7 @@ export default function BoxProfile() {
                   href={UserData.github}
                   target="_blank"
                   rel="noopener noreferrer">
-                  <img src="SVG/github.svg" alt="github" />
+                  <img src="SVG/Github.svg" alt="github" />
                 </a>
               </div>
             )}
