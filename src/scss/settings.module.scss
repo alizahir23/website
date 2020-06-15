@@ -110,6 +110,11 @@
   cursor: pointer;
 }
 
+.submitButton:disabled {
+    cursor: initial;
+    opacity: 0.5;
+    background-color: #333; 
+  }
 
 .input {
   display: block;
@@ -121,6 +126,19 @@
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
   border-bottom: $border-bstyle;
+}
+
+#about-info-count {
+    color: #424040;
+    font-size: 0.8rem;
+}
+
+.invalid {
+  border-style: solid !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem;
+  border-width: 0.1rem !important;
+  border-color: red !important;
 }
 
 .input:focus,
@@ -139,7 +157,7 @@
   border: none;
   font-size: medium;
   font-weight: 300;
-  padding-top: 2.5rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.4rem;
   margin-bottom: 1.5rem;
   border-bottom: $border-bstyle;
