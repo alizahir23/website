@@ -56,4 +56,5 @@ Open the `opensourcecode` directory in your code editor of choice and edit files
 
 5: Create a PR.
 
-## WORKFLOW : <https://github.com/OpenSouceCode/Frontend.wiki.git>
+
+## [WORKFLOW](https://github.com/OpenSouceCode/Frontend.wiki.git)
