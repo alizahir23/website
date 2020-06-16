@@ -15,7 +15,7 @@ export async function GoogleSignIn() {
       email: result.user.email,
       uid: result.user.uid,
       profileImageUrl: result.user.photoURL
-    });
+    }, { merge: true });
     const resultData = { email: result.user.email, name: result.user.displayName, uid: result.user.uid, profileImageUrl: result.user.photoURL };
     const newSecureToken = jwt.sign(resultData, process.env.NEXT_PUBLIC_SECURE_TOKEN_ACCESS_KEY);
     localStorage.setItem('osc-app-token', newSecureToken);
