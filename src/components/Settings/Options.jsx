@@ -50,7 +50,9 @@ const SettingsFinal = () => {
   if(PageLoading) return <Spinner />
 
   return (
+
     <div style={{ width: '95%', margin: '20px auto' }}>
+
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
@@ -67,9 +69,11 @@ const SettingsFinal = () => {
               onClick={basic}
               style={{
                 background: showBasic ? '#00CACA' : 'white',
+
                 color: showBasic ? 'white' : 'black'
               }}
               className={styles.options}>
+
               Basic Information
             </button>
             <button
@@ -77,9 +81,11 @@ const SettingsFinal = () => {
               onClick={about}
               style={{
                 background: showAbout ? '#00CACA' : 'white',
+
                 color: showAbout ? 'white' : 'black'
               }}
               className={styles.options}>
+
               About You
             </button>
             <button
@@ -87,9 +93,11 @@ const SettingsFinal = () => {
               onClick={skill}
               style={{
                 background: showSocial ? '#00CACA' : 'white',
+
                 color: showSocial ? 'white' : 'black'
               }}
               className={styles.options}>
+
               Socials
             </button>
           </div>
@@ -97,16 +105,19 @@ const SettingsFinal = () => {
 
         <div
           className={styles.boxes2}
+
           style={{ display: showBasic ? 'block' : 'none' }}>
           <Basicinfo UserData={LoggedInUser} />
         </div>
         <div
           className={styles.boxes2}
+
           style={{ display: showAbout ? 'block' : 'none' }}>
           <Aboutus UserData={LoggedInUser} />
         </div>
         <div
           className={styles.boxes2}
+
           style={{ display: showSocial ? 'block' : 'none' }}>
           <Social UserData={LoggedInUser} />
         </div>
