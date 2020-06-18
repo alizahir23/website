@@ -10,6 +10,7 @@ export default function BoxProfile() {
   const { User } = useContext(UserContext);
   const [Loading, setLoading] = useState(true);
   const [UserData, setUserData] = useState({});
+  const [follows, setFollows] = useState(0);
   // const [MissingData, setMissingData] = useState(false);
 
   useEffect(() => {
@@ -19,6 +20,15 @@ export default function BoxProfile() {
         .get()
         .then((data) => {
           setUserData(data.data());
+          let totalFollows = 0;
+          if (data.data().followingLanguages !== undefined) {
+            totalFollows += data.data().followingLanguages.length;
+          }
+
+          if (data.data().followingOrganisations !== undefined) {
+            totalFollows += data.data().followingOrganisations.length;
+          }
+          setFollows(totalFollows);
           setLoading(false);
         });
   }, [User]);
@@ -36,7 +46,11 @@ export default function BoxProfile() {
             <div className={styles['imgabsolute-border']}>
               <img
                 className={styles.imgabsolute}
-                src="SVG/Rectangle 60.svg"
+                src={
+                  UserData.profileImageUrl
+                    ? UserData.profileImageUrl
+                    : '/SVG/user.svg'
+                }
                 alt="Profile pic"
               />
             </div>
@@ -63,30 +77,49 @@ export default function BoxProfile() {
                     );
                   })
                 ) : (
-                  <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
-                )}
+                    <p style={{ color: 'rgb(138, 138, 138)' }}>No skills...</p>
+                  )}
               </div>
             </div>
           </div>
 
           <div className={styles.links}>
-            {UserData.github && (
+            {UserData.website && (
               <div>
-                <a href={UserData.github} target="blank">
-                  <img src="SVG/social-media.svg" alt="github" />
+                <a
+                  href={UserData.website}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="SVG/link.png" alt="link" />
                 </a>
               </div>
             )}
-            {UserData.linkedin && (
-              <div className={styles['top-right-in']}>
-                <a href={UserData.linkedin}>
+            {UserData.github && (
+              <div>
+                <a
+                  href={UserData.github}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="SVG/Github.svg" alt="github" />
+                </a>
+              </div>
+            )}
+            {UserData.linkedIn && (
+              <div>
+                <a
+                  href={UserData.linkedIn}
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <img src="SVG/Linkedin.svg" alt="linkedin" />
                 </a>
               </div>
             )}
             {UserData.twitter && (
-              <div className={styles['top-right-in']}>
-                <a href={UserData.twitter}>
+              <div>
+                <a
+                  href={UserData.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer">
                   <img src="SVG/twitter.svg" alt="twitter" />
                 </a>
               </div>
@@ -106,11 +139,7 @@ export default function BoxProfile() {
               </div>
               <div className={styles.count}>
                 <p>
-                  {UserData.followingOrganisations !== undefined ||
-                  UserData.followingLanguages !== undefined
-                    ? UserData.followingOrganisations.length +
-                      UserData.followingLanguages.length
-                    : 0}
+                  {follows}
                 </p>
               </div>
             </div>

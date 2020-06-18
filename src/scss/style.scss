@@ -72,6 +72,14 @@
   font-size: 0.9rem;
 }
 
+.input-field-error {
+  color: #ec1111 !important;
+  font-size: 1rem !important;
+  font-weight: normal !important;
+  margin-top: -1.5rem;
+  padding-bottom: 2rem;
+}
+
 @media (max-width: 800px) {
   html {
     font-size: 14px;

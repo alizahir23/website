@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
+import { storedUserData } from '../../firestore/profileSettings';
 import styles from '../../scss/settings.module.scss';
+import Spinner from '../Spinner';
+import UserContext from '../UserContext';
 import Aboutus from './AboutUs';
 import Basicinfo from './BasicInfo';
 import Social from './SocialHandle';
@@ -9,7 +12,21 @@ const SettingsFinal = () => {
   const [showBasic, setShowBasic] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
   const [showSocial, setShowSocial] = useState(false);
+  const [LoggedInUser, setLoggedInUser] = useState(null);
+  const [PageLoading, setPageLoading] = useState(true);
+  const { User } = useContext(UserContext);
   const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    async function getBasicInfo() {
+      const result = await storedUserData(User.uid);
+      if (result !== null) {
+        setLoggedInUser(result);
+      }
+      setPageLoading(false);
+    }
+    if (User) getBasicInfo();
+  }, [User]);
 
   const basic = () => {
     setShowBasic(true);
@@ -29,11 +46,10 @@ const SettingsFinal = () => {
     setShowSocial(true);
     setCount(3);
   };
+  if (PageLoading) return <Spinner />;
 
   return (
-
     <div style={{ width: '95%', margin: '20px auto' }}>
-
       <div className={styles['flexing-first']}>
         <div className={styles.boxes}>
           <div className={styles.flexing}>
@@ -54,7 +70,6 @@ const SettingsFinal = () => {
                 color: showBasic ? 'white' : 'black'
               }}
               className={styles.options}>
-
               Basic Information
             </button>
             <button
@@ -66,7 +81,6 @@ const SettingsFinal = () => {
                 color: showAbout ? 'white' : 'black'
               }}
               className={styles.options}>
-
               About You
             </button>
             <button
@@ -78,7 +92,6 @@ const SettingsFinal = () => {
                 color: showSocial ? 'white' : 'black'
               }}
               className={styles.options}>
-
               Socials
             </button>
           </div>
@@ -86,24 +99,18 @@ const SettingsFinal = () => {
 
         <div
           className={styles.boxes2}
-
           style={{ display: showBasic ? 'block' : 'none' }}>
-
-          <Basicinfo />
+          <Basicinfo UserData={LoggedInUser} />
         </div>
         <div
           className={styles.boxes2}
-
           style={{ display: showAbout ? 'block' : 'none' }}>
-
-          <Aboutus />
+          <Aboutus UserData={LoggedInUser} />
         </div>
         <div
           className={styles.boxes2}
-
           style={{ display: showSocial ? 'block' : 'none' }}>
-
-          <Social />
+          <Social UserData={LoggedInUser} />
         </div>
       </div>
     </div>
